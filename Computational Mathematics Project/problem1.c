@@ -16,7 +16,7 @@ int main(){
     DrawScatterPlot(imageRef, 1000, 600, x, 8, y, 8);
     size_t length;
     double *pngData = ConvertToPNG(&length, imageRef->image);
-    WriteToFile(pngData, length, "plots/plot.png");
-    system("open plots/plot.png");
+    WriteToFile(pngData, length, "plot.png");
+    system("open plot.png");
     return 0;
 }
