@@ -32,6 +32,7 @@
 		699070EE2595F87A00102EDB /* supportLib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = supportLib.c; sourceTree = "<group>"; };
 		699070EF2595F87A00102EDB /* pbPlots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pbPlots.h; sourceTree = "<group>"; };
 		699070F52595FAF800102EDB /* plot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plot.png; sourceTree = "<group>"; };
+		69ACE1352598987E00FDC62A /* plot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plot2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 		699070F32595FA8E00102EDB /* plots */ = {
 			isa = PBXGroup;
 			children = (
+				69ACE1352598987E00FDC62A /* plot2.png */,
 				699070F52595FAF800102EDB /* plot.png */,
 			);
 			path = plots;
