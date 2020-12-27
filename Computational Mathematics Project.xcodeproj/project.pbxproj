@@ -25,6 +25,10 @@
 /* Begin PBXFileReference section */
 		699070E02595F85D00102EDB /* Computational Mathematics Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Computational Mathematics Project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		699070E32595F85D00102EDB /* problem1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1.c; sourceTree = "<group>"; };
+		69ACE1392598AE2800FDC62A /* euler_method_z.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z.txt; sourceTree = "<group>"; };
+		69ACE13A2598AE2800FDC62A /* euler_method_y.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_y.txt; sourceTree = "<group>"; };
+		69ACE13C2598B48F00FDC62A /* euler_method_z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = euler_method_z.png; sourceTree = "<group>"; };
+		69ACE13D2598B48F00FDC62A /* euler_method_y.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = euler_method_y.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,10 @@
 		699070F32595FA8E00102EDB /* plots */ = {
 			isa = PBXGroup;
 			children = (
+				69ACE13D2598B48F00FDC62A /* euler_method_y.png */,
+				69ACE13C2598B48F00FDC62A /* euler_method_z.png */,
+				69ACE13A2598AE2800FDC62A /* euler_method_y.txt */,
+				69ACE1392598AE2800FDC62A /* euler_method_z.txt */,
 			);
 			path = plots;
 			sourceTree = "<group>";

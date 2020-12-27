@@ -36,9 +36,9 @@ void createPlotData(double y[], double t[], char * filename);
 
 
 int main(){
-    double y [30002];
-    double y2 [30002];
-    double t [30002];
+    double y [30001];
+    double y2 [30001];
+    double t [30001];
     double time = 0.0;
     double y_x_1 = z0;
     double y_y_1 = zpar0;
@@ -46,7 +46,7 @@ int main(){
     double y_w_1 = psi0;
     double y_u_1 = psipar0;
     
-    for(int i = 1; i<=30001; i++, time+=h ) {
+    for(int i = 0; i<=30000; i++, time+=h ) {
         
         y[i] = y_x_1;
         y_x_1 = y_x_1 + h * fx(time, y[i], y_y_1);
@@ -73,7 +73,7 @@ void createPlotData(double y[], double t[], char * filename) {
     FILE *fp=NULL;
     fp=fopen(filename,"w");
 
-    for(int i = 1; i<=30001; i++) {
+    for(int i = 0; i<=30000; i++) {
         fprintf(fp,"%lf\t %lf\n",t[i],y[i]);
     }
 }
