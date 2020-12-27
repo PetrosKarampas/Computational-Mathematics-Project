@@ -7,10 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		699070E42595F85D00102EDB /* problem1.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070E32595F85D00102EDB /* problem1.c */; };
+		694228722599323800493CD5 /* problem1d.c in Sources */ = {isa = PBXBuildFile; fileRef = 694228712599323800493CD5 /* problem1d.c */; };
+		6942287C2599355000493CD5 /* problem1b.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070E32595F85D00102EDB /* problem1b.c */; };
+		699070E42595F85D00102EDB /* problem1b.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070E32595F85D00102EDB /* problem1b.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6942286D2599323800493CD5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		699070DE2595F85D00102EDB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -23,8 +34,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		699070E02595F85D00102EDB /* Computational Mathematics Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Computational Mathematics Project"; sourceTree = BUILT_PRODUCTS_DIR; };
-		699070E32595F85D00102EDB /* problem1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1.c; sourceTree = "<group>"; };
+		6942286F2599323800493CD5 /* Problem-1d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Problem-1d"; sourceTree = BUILT_PRODUCTS_DIR; };
+		694228712599323800493CD5 /* problem1d.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1d.c; sourceTree = "<group>"; };
+		6942287F25993CB100493CD5 /* euler_method_d_z_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = euler_method_d_z_input1.txt; sourceTree = "<group>"; };
+		694228802599400000493CD5 /* euler_method_d_y_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = euler_method_d_y_input1.txt; sourceTree = "<group>"; };
+		694228812599437800493CD5 /* improved_euler_method_d_z_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = improved_euler_method_d_z_input1.txt; sourceTree = "<group>"; };
+		694228822599437800493CD5 /* improved_euler_method_d_y_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = improved_euler_method_d_y_input1.txt; sourceTree = "<group>"; };
+		699070E02595F85D00102EDB /* Problem-1b */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Problem-1b"; sourceTree = BUILT_PRODUCTS_DIR; };
+		699070E32595F85D00102EDB /* problem1b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1b.c; sourceTree = "<group>"; };
 		69ACE13F2598C62800FDC62A /* euler_method_z_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_input1.txt; sourceTree = "<group>"; };
 		69ACE1402598C62800FDC62A /* euler_method_y_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_y_input2.txt; sourceTree = "<group>"; };
 		69ACE1412598C62800FDC62A /* euler_method_y_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_y_input1.txt; sourceTree = "<group>"; };
@@ -36,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6942286C2599323800493CD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		699070DD2595F85D00102EDB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,11 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		694228702599323800493CD5 /* Problem-1d */ = {
+			isa = PBXGroup;
+			children = (
+				694228712599323800493CD5 /* problem1d.c */,
+			);
+			path = "Problem-1d";
+			sourceTree = "<group>";
+		};
 		699070D72595F85D00102EDB = {
 			isa = PBXGroup;
 			children = (
 				699070F32595FA8E00102EDB /* plots */,
-				699070E22595F85D00102EDB /* Computational Mathematics Project */,
+				699070E22595F85D00102EDB /* Problem-1b */,
+				694228702599323800493CD5 /* Problem-1d */,
 				699070E12595F85D00102EDB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,22 +91,27 @@
 		699070E12595F85D00102EDB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				699070E02595F85D00102EDB /* Computational Mathematics Project */,
+				699070E02595F85D00102EDB /* Problem-1b */,
+				6942286F2599323800493CD5 /* Problem-1d */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		699070E22595F85D00102EDB /* Computational Mathematics Project */ = {
+		699070E22595F85D00102EDB /* Problem-1b */ = {
 			isa = PBXGroup;
 			children = (
-				699070E32595F85D00102EDB /* problem1.c */,
+				699070E32595F85D00102EDB /* problem1b.c */,
 			);
-			path = "Computational Mathematics Project";
+			path = "Problem-1b";
 			sourceTree = "<group>";
 		};
 		699070F32595FA8E00102EDB /* plots */ = {
 			isa = PBXGroup;
 			children = (
+				694228822599437800493CD5 /* improved_euler_method_d_y_input1.txt */,
+				694228812599437800493CD5 /* improved_euler_method_d_z_input1.txt */,
+				694228802599400000493CD5 /* euler_method_d_y_input1.txt */,
+				6942287F25993CB100493CD5 /* euler_method_d_z_input1.txt */,
 				69ACE1452598F90C00FDC62A /* improved_euler_method_y_input2.txt */,
 				69ACE1462598F90C00FDC62A /* improved_euler_method_z_input2.txt */,
 				69ACE1432598EF5A00FDC62A /* improved_euler_method_y_input1.txt */,
@@ -89,9 +127,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		699070DF2595F85D00102EDB /* Computational Mathematics Project */ = {
+		6942286E2599323800493CD5 /* Problem-1d */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 699070E72595F85D00102EDB /* Build configuration list for PBXNativeTarget "Computational Mathematics Project" */;
+			buildConfigurationList = 694228732599323800493CD5 /* Build configuration list for PBXNativeTarget "Problem-1d" */;
+			buildPhases = (
+				6942286B2599323800493CD5 /* Sources */,
+				6942286C2599323800493CD5 /* Frameworks */,
+				6942286D2599323800493CD5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Problem-1d";
+			productName = "Problem-1d";
+			productReference = 6942286F2599323800493CD5 /* Problem-1d */;
+			productType = "com.apple.product-type.tool";
+		};
+		699070DF2595F85D00102EDB /* Problem-1b */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 699070E72595F85D00102EDB /* Build configuration list for PBXNativeTarget "Problem-1b" */;
 			buildPhases = (
 				699070DC2595F85D00102EDB /* Sources */,
 				699070DD2595F85D00102EDB /* Frameworks */,
@@ -101,9 +156,9 @@
 			);
 			dependencies = (
 			);
-			name = "Computational Mathematics Project";
+			name = "Problem-1b";
 			productName = "Computational Mathematics Project";
-			productReference = 699070E02595F85D00102EDB /* Computational Mathematics Project */;
+			productReference = 699070E02595F85D00102EDB /* Problem-1b */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -114,6 +169,9 @@
 			attributes = {
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					6942286E2599323800493CD5 = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					699070DF2595F85D00102EDB = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -132,23 +190,49 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				699070DF2595F85D00102EDB /* Computational Mathematics Project */,
+				699070DF2595F85D00102EDB /* Problem-1b */,
+				6942286E2599323800493CD5 /* Problem-1d */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6942286B2599323800493CD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6942287C2599355000493CD5 /* problem1b.c in Sources */,
+				694228722599323800493CD5 /* problem1d.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		699070DC2595F85D00102EDB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				699070E42595F85D00102EDB /* problem1.c in Sources */,
+				699070E42595F85D00102EDB /* problem1b.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		694228742599323800493CD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		694228752599323800493CD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		699070E52595F85D00102EDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -279,6 +363,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		694228732599323800493CD5 /* Build configuration list for PBXNativeTarget "Problem-1d" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				694228742599323800493CD5 /* Debug */,
+				694228752599323800493CD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		699070DB2595F85D00102EDB /* Build configuration list for PBXProject "Computational Mathematics Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -288,7 +381,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		699070E72595F85D00102EDB /* Build configuration list for PBXNativeTarget "Computational Mathematics Project" */ = {
+		699070E72595F85D00102EDB /* Build configuration list for PBXNativeTarget "Problem-1b" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				699070E82595F85D00102EDB /* Debug */,

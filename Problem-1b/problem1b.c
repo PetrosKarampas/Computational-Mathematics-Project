@@ -1,5 +1,5 @@
 //
-//  main.c
+//  problem1b.c
 //  Computational Mathematics Project
 //
 //  Created by Alexandros Alexiou on 25/12/20.
@@ -36,7 +36,7 @@ double Cpsi = 5.0-((double)AM/5000);
 void createPlotData(double y[], double t[], char* filename, char* commands[]);
 
 
-int main(int argc, char* argv[]) {
+int main(int argc, const char* argv[]) {
     
     if (argc < 2) {
         printf("Please pass 1 or 2 for the two different inputs (fz, tz)");
@@ -105,6 +105,7 @@ int main(int argc, char* argv[]) {
 
     /*--------------- Plotting --------------*/
     if( atoi(argv[1]) == 1){
+        // plotting for euler method and improved euler for z and psi
         char * commandsForGnuplot[] = {"set title \"Euler's method\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot 'plots/euler_method_z_input1.txt' lt rgb \"red\""};
         createPlotData(z, t, "plots/euler_method_z_input1.txt", commandsForGnuplot);
 
