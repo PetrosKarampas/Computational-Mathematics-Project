@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		699070E42595F85D00102EDB /* problem1.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070E32595F85D00102EDB /* problem1.c */; };
-		699070F02595F87A00102EDB /* pbPlots.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070ED2595F87A00102EDB /* pbPlots.c */; };
-		699070F12595F87A00102EDB /* supportLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070EE2595F87A00102EDB /* supportLib.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,12 +25,6 @@
 /* Begin PBXFileReference section */
 		699070E02595F85D00102EDB /* Computational Mathematics Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Computational Mathematics Project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		699070E32595F85D00102EDB /* problem1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1.c; sourceTree = "<group>"; };
-		699070EC2595F87A00102EDB /* supportLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = supportLib.h; sourceTree = "<group>"; };
-		699070ED2595F87A00102EDB /* pbPlots.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pbPlots.c; sourceTree = "<group>"; };
-		699070EE2595F87A00102EDB /* supportLib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = supportLib.c; sourceTree = "<group>"; };
-		699070EF2595F87A00102EDB /* pbPlots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pbPlots.h; sourceTree = "<group>"; };
-		699070F52595FAF800102EDB /* plot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plot.png; sourceTree = "<group>"; };
-		69ACE1352598987E00FDC62A /* plot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plot2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +42,6 @@
 			isa = PBXGroup;
 			children = (
 				699070F32595FA8E00102EDB /* plots */,
-				699070EB2595F86300102EDB /* include */,
 				699070E22595F85D00102EDB /* Computational Mathematics Project */,
 				699070E12595F85D00102EDB /* Products */,
 			);
@@ -72,22 +63,9 @@
 			path = "Computational Mathematics Project";
 			sourceTree = "<group>";
 		};
-		699070EB2595F86300102EDB /* include */ = {
-			isa = PBXGroup;
-			children = (
-				699070ED2595F87A00102EDB /* pbPlots.c */,
-				699070EF2595F87A00102EDB /* pbPlots.h */,
-				699070EE2595F87A00102EDB /* supportLib.c */,
-				699070EC2595F87A00102EDB /* supportLib.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
 		699070F32595FA8E00102EDB /* plots */ = {
 			isa = PBXGroup;
 			children = (
-				69ACE1352598987E00FDC62A /* plot2.png */,
-				699070F52595FAF800102EDB /* plot.png */,
 			);
 			path = plots;
 			sourceTree = "<group>";
@@ -148,9 +126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				699070F02595F87A00102EDB /* pbPlots.c in Sources */,
 				699070E42595F85D00102EDB /* problem1.c in Sources */,
-				699070F12595F87A00102EDB /* supportLib.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
