@@ -33,9 +33,9 @@ double Kdz = 15 + (double)AM/1000;
 
 //Macros
 #define fx(t, x, y) (y)
-#define fy(t, x, y) ( (Kpz * (z_des - x) - y * (Kdz + Cz * fabs(y)) )/M)
+#define fy(t, x, y) ( (Kpz * (z_des - x) - Kdz * y - Cz * fabs(y) * y )/M)
 #define fw(t, w, u) (u)
-#define fu(t, w, u) ( (Kp_psi * (psi_des-w) - u * (Kd_psi + 0.5 * Cpsi * fabs(u)) )/Iz)
+#define fu(t, w, u) ( (Kp_psi * (psi_des-w) - Kd_psi * u - 0.5 * Cpsi * fabs(u) * u )/Iz)
 
 //#define fy(t, x, y) ( (M*g + Kpz*(z_des-x)-Kdz*y-M*g-Cz*fabs(y)*y)/M )
 //#define fu(t, w, u) ( (Kp_psi*(psi_des-w)-Kd_psi*u-0.5*Cpsi*fabs(u)*u)/Iz)
