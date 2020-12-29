@@ -1,7 +1,8 @@
-## Drone study through differential equations
+## Drone movement study through differential equations
 
 We used [gnuplot](http://www.gnuplot.info) for plotting.
-You can find the gnuplot docs [here](http://www.gnuplot.info/docs_5.4/Gnuplot_5_4.pdf)
+
+You can find the gnuplot docs [here](http://www.gnuplot.info/docs_5.4/Gnuplot_5_4.pdf).
 
 ## Run
 
