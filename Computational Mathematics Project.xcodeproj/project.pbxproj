@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		694228722599323800493CD5 /* problem1d.c in Sources */ = {isa = PBXBuildFile; fileRef = 694228712599323800493CD5 /* problem1d.c */; };
 		6942287C2599355000493CD5 /* problem1b.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070E32595F85D00102EDB /* problem1b.c */; };
+		69632F27259BBCC300BB4860 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 69632F26259BBCC300BB4860 /* Makefile */; };
 		699070E42595F85D00102EDB /* problem1b.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070E32595F85D00102EDB /* problem1b.c */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,9 @@
 		694228802599400000493CD5 /* euler_method_d_y_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = euler_method_d_y_input1.txt; sourceTree = "<group>"; };
 		694228812599437800493CD5 /* improved_euler_method_d_z_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = improved_euler_method_d_z_input1.txt; sourceTree = "<group>"; };
 		694228822599437800493CD5 /* improved_euler_method_d_y_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = improved_euler_method_d_y_input1.txt; sourceTree = "<group>"; };
+		69632F25259A8FA000BB4860 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		69632F26259BBCC300BB4860 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		69632F2A259BBD1900BB4860 /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
 		699070E02595F85D00102EDB /* Problem-1b */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Problem-1b"; sourceTree = BUILT_PRODUCTS_DIR; };
 		699070E32595F85D00102EDB /* problem1b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1b.c; sourceTree = "<group>"; };
 		69ACE13F2598C62800FDC62A /* euler_method_z_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_input1.txt; sourceTree = "<group>"; };
@@ -81,6 +85,9 @@
 		699070D72595F85D00102EDB = {
 			isa = PBXGroup;
 			children = (
+				69632F2A259BBD1900BB4860 /* bin */,
+				69632F26259BBCC300BB4860 /* Makefile */,
+				69632F25259A8FA000BB4860 /* README.md */,
 				699070F32595FA8E00102EDB /* plots */,
 				699070E22595F85D00102EDB /* Problem-1b */,
 				694228702599323800493CD5 /* Problem-1d */,
@@ -210,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69632F27259BBCC300BB4860 /* Makefile in Sources */,
 				699070E42595F85D00102EDB /* problem1b.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

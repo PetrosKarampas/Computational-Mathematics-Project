@@ -98,23 +98,23 @@ int main(int argc, const char * argv[]) {
     /*--------------------plotting--------------------------*/
     
     // plotting for euler method z and psi
-    char * commandsForGnuplot[] = {"set title \"Euler's method d\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot 'plots/euler_method_d_z_input1.txt' lt rgb \"red\""};
+    char * commandsForGnuplot[] = {"set title \"Euler's method d\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_d_z_input1.txt' lt rgb \"red\""};
     createPlotData(z, t, "plots/euler_method_d_z_input1.txt", commandsForGnuplot);
     
     
     commandsForGnuplot[2]="set ylabel \"orientation\"";
-    commandsForGnuplot[3]="plot 'plots/euler_method_d_y_input1.txt' lt rgb \"blue\"";
-    createPlotData(y, t, "plots/euler_method_d_y_input1.txt", commandsForGnuplot);
+    commandsForGnuplot[3]="plot '../plots/euler_method_d_y_input1.txt' lt rgb \"blue\"";
+    createPlotData(y, t, "../plots/euler_method_d_y_input1.txt", commandsForGnuplot);
     
     // plotting for improved euler method z and psi
     commandsForGnuplot[0]="set title \"Improved Euler's method d\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
-    commandsForGnuplot[3]="plot 'plots/improved_euler_method_d_z_input1.txt' lt rgb \"red\"";
-    createPlotData(z_improved, t, "plots/improved_euler_method_d_z_input1.txt", commandsForGnuplot);
+    commandsForGnuplot[3]="plot '../plots/improved_euler_method_d_z_input1.txt' lt rgb \"red\"";
+    createPlotData(z_improved, t, "../plots/improved_euler_method_d_z_input1.txt", commandsForGnuplot);
     
     commandsForGnuplot[2]="set ylabel \"orientation\"";
-    commandsForGnuplot[3]="plot 'plots/improved_euler_method_d_y_input1.txt' lt rgb \"blue\"";
-    createPlotData(y_improved, t, "plots/improved_euler_method_d_y_input1.txt", commandsForGnuplot);
+    commandsForGnuplot[3]="plot '../plots/improved_euler_method_d_y_input1.txt' lt rgb \"blue\"";
+    createPlotData(y_improved, t, "../plots/improved_euler_method_d_y_input1.txt", commandsForGnuplot);
 
     return 0;
 }
