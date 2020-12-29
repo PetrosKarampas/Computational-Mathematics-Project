@@ -99,7 +99,7 @@ int main(int argc, const char * argv[]) {
     
     // plotting for euler method z and psi
     char * commandsForGnuplot[] = {"set title \"Euler's method d\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_d_z_input1.txt' lt rgb \"red\""};
-    createPlotData(z, t, "plots/euler_method_d_z_input1.txt", commandsForGnuplot);
+    createPlotData(z, t, "../plots/euler_method_d_z_input1.txt", commandsForGnuplot);
     
     
     commandsForGnuplot[2]="set ylabel \"orientation\"";
