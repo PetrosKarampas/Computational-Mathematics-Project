@@ -43,7 +43,8 @@
 		694228822599437800493CD5 /* improved_euler_method_d_y_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = improved_euler_method_d_y_input1.txt; sourceTree = "<group>"; };
 		69632F25259A8FA000BB4860 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		69632F26259BBCC300BB4860 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		69632F2A259BBD1900BB4860 /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
+		69632F2E259BC33F00BB4860 /* problem1b */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = problem1b; sourceTree = "<group>"; };
+		69632F2F259BC33F00BB4860 /* problem1d */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = problem1d; sourceTree = "<group>"; };
 		699070E02595F85D00102EDB /* Problem-1b */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Problem-1b"; sourceTree = BUILT_PRODUCTS_DIR; };
 		699070E32595F85D00102EDB /* problem1b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1b.c; sourceTree = "<group>"; };
 		69ACE13F2598C62800FDC62A /* euler_method_z_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_input1.txt; sourceTree = "<group>"; };
@@ -82,10 +83,19 @@
 			path = "Problem-1d";
 			sourceTree = "<group>";
 		};
+		69632F2D259BC30200BB4860 /* bin */ = {
+			isa = PBXGroup;
+			children = (
+				69632F2E259BC33F00BB4860 /* problem1b */,
+				69632F2F259BC33F00BB4860 /* problem1d */,
+			);
+			path = bin;
+			sourceTree = "<group>";
+		};
 		699070D72595F85D00102EDB = {
 			isa = PBXGroup;
 			children = (
-				69632F2A259BBD1900BB4860 /* bin */,
+				69632F2D259BC30200BB4860 /* bin */,
 				69632F26259BBCC300BB4860 /* Makefile */,
 				69632F25259A8FA000BB4860 /* README.md */,
 				699070F32595FA8E00102EDB /* plots */,
