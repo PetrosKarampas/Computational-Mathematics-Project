@@ -37,9 +37,6 @@ double Kdz = 15 + (double)AM/1000;
 #define fw(t, w, u) (u)
 #define fu(t, w, u) ( (Kp_psi * (psi_des-w) - Kd_psi * u - 0.5 * Cpsi * fabs(u) * u )/Iz)
 
-//#define fy(t, x, y) ( (M*g + Kpz*(z_des-x)-Kdz*y-M*g-Cz*fabs(y)*y)/M )
-//#define fu(t, w, u) ( (Kp_psi*(psi_des-w)-Kd_psi*u-0.5*Cpsi*fabs(u)*u)/Iz)
-
 //prtotypes
 void createPlotData(double y[], double t[], char* filename, char* commands[]);
 
