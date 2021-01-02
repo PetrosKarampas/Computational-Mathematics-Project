@@ -56,21 +56,21 @@ int main(int argc, const char* argv[]) {
     double y [30001];
     double t [30001];
     double time = 0.0;
-    double y_x_1 = z0;
-    double y_y_1 = zpar0;
+    double x_n = z0;
+    double y_n = zpar0;
     
-    double y_w_1 = psi0;
-    double y_u_1 = psipar0;
+    double w_n = psi0;
+    double u_n = psipar0;
     
     for(int i = 0; i<=30000; i++, time+=h ) {
         
-        z[i] = y_x_1;
-        y_x_1 = y_x_1 + h * fx(time, z[i], y_y_1);
-        y_y_1 = y_y_1 + h * fy(time, z[i], y_y_1);
+        z[i] = x_n;
+        x_n = x_n + h * fx(time, z[i], y_n);
+        y_n = y_n + h * fy(time, z[i], y_n);
         
-        y[i] = y_w_1;
-        y_w_1 = y_w_1 + h * fw(time, y[i], y_u_1);
-        y_u_1 = y_u_1 + h * fu(time, y[i], y_u_1);
+        y[i] = w_n;
+        w_n = w_n + h * fw(time, y[i], u_n);
+        u_n = u_n + h * fu(time, y[i], u_n);
         
         t[i] = time;
     }
@@ -83,21 +83,21 @@ int main(int argc, const char* argv[]) {
     
     time = 0.0;
     
-    double y_a_ve = z0;
-    double y_b_ve = zpar0;
+    x_n = z0;
+    y_n = zpar0;
     
-    double y_c_ve = psi0;
-    double y_d_ve = psipar0;
+    w_n = psi0;
+    u_n = psipar0;
     
     for(int i = 0; i<=30000; i++, time+=h ) {
         
-        z_improved[i]=y_a_ve;
-        y_a_ve = z_improved[i] + (h/2) * ( fx( time , z_improved[i], y_b_ve) + fx( time+h, z_improved[i] + h * fx(time, z_improved[i], y_b_ve), y_b_ve + h * fy(time, z_improved[i], y_b_ve) )  );
-        y_b_ve = y_b_ve        + (h/2) * ( fy( time , z_improved[i], y_b_ve) + fy( time+h, z_improved[i] + h * fx(time, z_improved[i], y_b_ve), y_b_ve + h * fy(time, z_improved[i], y_b_ve) )  );
+        z_improved[i]=x_n;
+        x_n = z_improved[i] + (h/2) * ( fx( time , z_improved[i], y_n) + fx( time+h, z_improved[i] + h * fx(time, z_improved[i], y_n), y_n + h * fy(time, z_improved[i], y_n) )  );
+        y_n = y_n           + (h/2) * ( fy( time , z_improved[i], y_n) + fy( time+h, z_improved[i] + h * fx(time, z_improved[i], y_n), y_n + h * fy(time, z_improved[i], y_n) )  );
         
-        y_improved[i]=y_c_ve;
-        y_c_ve = y_improved[i] + (h/2) * ( fw( time , y_improved[i], y_d_ve) + fw( time+h, y_improved[i] + h * fw(time, y_improved[i], y_d_ve), y_d_ve + h * fu(time, y_improved[i], y_d_ve) )  );
-        y_d_ve = y_d_ve        + (h/2) * ( fu( time , y_improved[i], y_d_ve) + fu( time+h, y_improved[i] + h * fw(time, y_improved[i], y_b_ve), y_d_ve + h * fu(time, y_improved[i], y_d_ve) )  );
+        y_improved[i]=w_n;
+        w_n = y_improved[i] + (h/2) * ( fw( time , y_improved[i], u_n) + fw( time+h, y_improved[i] + h * fw(time, y_improved[i], u_n), u_n + h * fu(time, y_improved[i], u_n) )  );
+        u_n = u_n           + (h/2) * ( fu( time , y_improved[i], u_n) + fu( time+h, y_improved[i] + h * fw(time, y_improved[i], y_n), u_n + h * fu(time, y_improved[i], u_n) )  );
     
     }
     /*----------------------------------------------*/
