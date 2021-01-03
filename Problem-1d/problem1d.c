@@ -95,23 +95,23 @@ int main(int argc, const char * argv[]) {
     /*--------------------plotting--------------------------*/
     
     // plotting for euler method z and psi
-    char * commandsForGnuplot[] = {"set title \"Euler's method for z\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z.txt' lt rgb \"red\""};
+    char * commandsForGnuplot[] = {"set title \"Euler's method for z\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z.txt' lt rgb \"red\" with lines"};
     createPlotData(z, t, "../plots/euler_method_z.txt", commandsForGnuplot);
     
     commandsForGnuplot[0]="set title \"Euler's method for Psi\"";
     commandsForGnuplot[2]="set ylabel \"orientation\"";
-    commandsForGnuplot[3]="plot '../plots/euler_method_Psi.txt' lt rgb \"blue\"";
+    commandsForGnuplot[3]="plot '../plots/euler_method_Psi.txt' lt rgb \"blue\" with lines";
     createPlotData(y, t, "../plots/euler_method_Psi.txt", commandsForGnuplot);
     
     // plotting for improved euler method z and psi
     commandsForGnuplot[0]="set title \"Improved Euler's method z\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
-    commandsForGnuplot[3]="plot '../plots/improved_euler_method_z.txt' lt rgb \"red\"";
+    commandsForGnuplot[3]="plot '../plots/improved_euler_method_z.txt' lt rgb \"red\" with lines";
     createPlotData(z_improved, t, "../plots/improved_euler_method_z.txt", commandsForGnuplot);
     
     commandsForGnuplot[0]="set title \"Improved Euler's method for Psi\"";
     commandsForGnuplot[2]="set ylabel \"orientation\"";
-    commandsForGnuplot[3]="plot '../plots/improved_euler_method_Psi.txt' lt rgb \"blue\"";
+    commandsForGnuplot[3]="plot '../plots/improved_euler_method_Psi.txt' lt rgb \"blue\" with lines";
     createPlotData(y_improved, t, "../plots/improved_euler_method_Psi.txt", commandsForGnuplot);
 
     return 0;

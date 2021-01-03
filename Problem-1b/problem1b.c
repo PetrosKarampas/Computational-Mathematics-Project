@@ -106,39 +106,39 @@ int main(int argc, const char* argv[]) {
     /*--------------- Plotting --------------*/
     if( atoi(argv[1]) == 1){
         // plotting for euler method and improved euler for z and psi
-        char * commandsForGnuplot[] = {"set title \"Euler's method for z (input 1)\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z_input1.txt' lt rgb \"red\""};
+        char * commandsForGnuplot[] = {"set title \"Euler's method for z (input 1)\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z_input1.txt' lt rgb \"red\" with lines"};
         createPlotData(z, t, "../plots/euler_method_z_input1.txt", commandsForGnuplot);
 
         commandsForGnuplot[0] ="set title \"Improved Euler's method for z (input 1)\"";
-        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_z_input1.txt' lt rgb \"red\"";
+        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_z_input1.txt' lt rgb \"red\" with lines";
         createPlotData(z_improved, t, "../plots/improved_euler_method_z_input1.txt", commandsForGnuplot);
 
         commandsForGnuplot[0] ="set title \"Euler's method for Psi (input 1)\"";
-        commandsForGnuplot[3] ="plot '../plots/euler_method_Psi_input1.txt' lt rgb \"blue\"";
+        commandsForGnuplot[3] ="plot '../plots/euler_method_Psi_input1.txt' lt rgb \"blue\" with lines";
         commandsForGnuplot[2] ="set ylabel \"orientation\"";
         createPlotData(psi, t, "../plots/euler_method_Psi_input1.txt", commandsForGnuplot);
         
         commandsForGnuplot[0] ="set title \"Improved Euler's method for Psi (input 1)\"";
-        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_Psi_input1.txt' lt rgb \"blue\"";
+        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_Psi_input1.txt' lt rgb \"blue\" with lines";
         commandsForGnuplot[2] ="set ylabel \"orientation\"";
         createPlotData(psi_improved, t, "../plots/improved_euler_method_Psi_input1.txt", commandsForGnuplot);
         
         
     }else if(atoi(argv[1]) == 2) {
-        char * commandsForGnuplot[] = {"set title \"Euler's method for z (input 2)\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z_input2.txt' lt rgb \"red\""};
+        char * commandsForGnuplot[] = {"set title \"Euler's method for z (input 2)\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z_input2.txt' lt rgb \"red\" with lines"};
         createPlotData(z, t, "../plots/euler_method_z_input2.txt", commandsForGnuplot);
 
         commandsForGnuplot[0] ="set title \"Improved Euler's method for z (input 2)\"";
-        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_z_input2.txt' lt rgb \"red\"";
+        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_z_input2.txt' lt rgb \"red\" with lines";
         createPlotData(z_improved, t, "../plots/improved_euler_method_z_input2.txt", commandsForGnuplot);
 
         commandsForGnuplot[0] ="set title \"Euler's method for Psi (input 2)\"";
-        commandsForGnuplot[3] ="plot '../plots/euler_method_Psi_input2.txt' lt rgb \"blue\"";
+        commandsForGnuplot[3] ="plot '../plots/euler_method_Psi_input2.txt' lt rgb \"blue\" with lines";
         commandsForGnuplot[2] ="set ylabel \"orientation\"";
         createPlotData(psi, t, "../plots/euler_method_Psi_input2.txt", commandsForGnuplot);
         
         commandsForGnuplot[0] ="set title \"Improved Euler's method for Psi (input 2)\"";
-        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_Psi_input2.txt' lt rgb \"blue\"";
+        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_Psi_input2.txt' lt rgb \"blue\" with lines";
         commandsForGnuplot[2] ="set ylabel \"orientation\"";
         createPlotData(psi_improved, t, "../plots/improved_euler_method_Psi_input2.txt", commandsForGnuplot);
     }
