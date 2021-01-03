@@ -56,12 +56,12 @@ int main(int argc, const char * argv[]) {
     for(int i = 0; i<=30000; i++, time+=h ) {
         
         z[i] = x_n;
-        x_n = x_n + h * fx(time, x_n, y_n);
-        y_n = y_n + h * fy(time, x_n, y_n);
+        x_n  = x_n + h * fx(time, x_n, y_n);
+        y_n  = y_n + h * fy(time, x_n, y_n);
         
         y[i] = w_n;
-        w_n = w_n + h * fw(time, w_n, u_n);
-        u_n = u_n + h * fu(time, w_n, u_n);
+        w_n  = w_n + h * fw(time, w_n, u_n);
+        u_n  = u_n + h * fu(time, w_n, u_n);
         
         t[i] = time;
     }

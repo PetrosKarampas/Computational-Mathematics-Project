@@ -52,10 +52,10 @@ int main(int argc, char * argv[]){
     time = 0.0;
     
     for(i = 0; i<=30000; i++, time+=h){
-        z[i]    = x_n;
-        y[i]  = y_n;
-        x_n     = x_n + h * fx(time, x_n, y_n);
-        y_n     = y_n + h * fy(time, x_n, y_n);
+        z[i] = x_n;
+        y[i] = y_n;
+        x_n  = x_n + h * fx(time, x_n, y_n);
+        y_n  = y_n + h * fy(time, x_n, y_n);
     }
 
     /*--------------- Improved Euler's Method --------------*/
@@ -68,7 +68,7 @@ int main(int argc, char * argv[]){
     y_n = zpar0;
 
     for (i = 0; i<=30000; i++, time+=h){
-        z_improved[i]   = x_n;
+        z_improved[i] = x_n;
         y_improved[i] = y_n;
         
         x_n = x_n + (h/2) * ( fx( time , x_n, y_n) + fx( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );

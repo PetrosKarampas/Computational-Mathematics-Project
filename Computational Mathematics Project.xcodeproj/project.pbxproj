@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691B2A3025A201DD0069BD29 /* problem2d.c in Sources */ = {isa = PBXBuildFile; fileRef = 691B2A2F25A201DD0069BD29 /* problem2d.c */; };
 		694228722599323800493CD5 /* problem1d.c in Sources */ = {isa = PBXBuildFile; fileRef = 694228712599323800493CD5 /* problem1d.c */; };
 		6942287C2599355000493CD5 /* problem1b.c in Sources */ = {isa = PBXBuildFile; fileRef = 699070E32595F85D00102EDB /* problem1b.c */; };
 		69632F27259BBCC300BB4860 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 69632F26259BBCC300BB4860 /* Makefile */; };
@@ -35,26 +36,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		691B2A1F25A201870069BD29 /* euler_method_Psi_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_Psi_input2.txt; sourceTree = "<group>"; };
+		691B2A2025A201870069BD29 /* euler_method_z.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z.txt; sourceTree = "<group>"; };
+		691B2A2125A201870069BD29 /* improved_euler_method_Psi_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_Psi_input2.txt; sourceTree = "<group>"; };
+		691B2A2225A201870069BD29 /* euler_method_Psi_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_Psi_2d.txt; sourceTree = "<group>"; };
+		691B2A2325A201870069BD29 /* euler_method_z_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_2d.txt; sourceTree = "<group>"; };
+		691B2A2425A201870069BD29 /* euler_method_z_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_input2.txt; sourceTree = "<group>"; };
+		691B2A2525A201870069BD29 /* improved_euler_method_y_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_y_2d.txt; sourceTree = "<group>"; };
+		691B2A2625A201870069BD29 /* defferential.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = defferential.txt; sourceTree = "<group>"; };
+		691B2A2725A201870069BD29 /* euler_method_y_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_y_2d.txt; sourceTree = "<group>"; };
+		691B2A2825A201870069BD29 /* improved_euler_method_z_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_z_2d.txt; sourceTree = "<group>"; };
+		691B2A2925A201870069BD29 /* improved_euler_method_z_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_z_input2.txt; sourceTree = "<group>"; };
+		691B2A2A25A201870069BD29 /* improved_euler_method_Psi_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_Psi_2d.txt; sourceTree = "<group>"; };
+		691B2A2B25A201870069BD29 /* euler_method_Psi.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_Psi.txt; sourceTree = "<group>"; };
+		691B2A2C25A201870069BD29 /* improved_euler_method_Psi.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_Psi.txt; sourceTree = "<group>"; };
+		691B2A2D25A201870069BD29 /* improved_euler_method_z.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_z.txt; sourceTree = "<group>"; };
+		691B2A2F25A201DD0069BD29 /* problem2d.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = problem2d.c; sourceTree = "<group>"; };
 		6942286F2599323800493CD5 /* Problem-1d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Problem-1d"; sourceTree = BUILT_PRODUCTS_DIR; };
 		694228712599323800493CD5 /* problem1d.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1d.c; sourceTree = "<group>"; };
-		6942287F25993CB100493CD5 /* euler_method_d_z_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = euler_method_d_z_input1.txt; sourceTree = "<group>"; };
-		694228802599400000493CD5 /* euler_method_d_y_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = euler_method_d_y_input1.txt; sourceTree = "<group>"; };
-		694228812599437800493CD5 /* improved_euler_method_d_z_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = improved_euler_method_d_z_input1.txt; sourceTree = "<group>"; };
-		694228822599437800493CD5 /* improved_euler_method_d_y_input1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = improved_euler_method_d_y_input1.txt; sourceTree = "<group>"; };
 		69632F25259A8FA000BB4860 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		69632F26259BBCC300BB4860 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		69632F2E259BC33F00BB4860 /* problem1b */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = problem1b; sourceTree = "<group>"; };
 		69632F2F259BC33F00BB4860 /* problem1d */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = problem1d; sourceTree = "<group>"; };
 		699070E02595F85D00102EDB /* Problem-1b */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Problem-1b"; sourceTree = BUILT_PRODUCTS_DIR; };
 		699070E32595F85D00102EDB /* problem1b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = problem1b.c; sourceTree = "<group>"; };
-		69ACE13F2598C62800FDC62A /* euler_method_z_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_input1.txt; sourceTree = "<group>"; };
-		69ACE1402598C62800FDC62A /* euler_method_y_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_y_input2.txt; sourceTree = "<group>"; };
-		69ACE1412598C62800FDC62A /* euler_method_y_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_y_input1.txt; sourceTree = "<group>"; };
-		69ACE1422598C62800FDC62A /* euler_method_z_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_input2.txt; sourceTree = "<group>"; };
-		69ACE1432598EF5A00FDC62A /* improved_euler_method_y_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_y_input1.txt; sourceTree = "<group>"; };
-		69ACE1442598EF5A00FDC62A /* improved_euler_method_z_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_z_input1.txt; sourceTree = "<group>"; };
-		69ACE1452598F90C00FDC62A /* improved_euler_method_y_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_y_input2.txt; sourceTree = "<group>"; };
-		69ACE1462598F90C00FDC62A /* improved_euler_method_z_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_z_input2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		691B2A2E25A201980069BD29 /* Problem-2d */ = {
+			isa = PBXGroup;
+			children = (
+				691B2A2F25A201DD0069BD29 /* problem2d.c */,
+			);
+			path = "Problem-2d";
+			sourceTree = "<group>";
+		};
 		694228702599323800493CD5 /* Problem-1d */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +108,7 @@
 		699070D72595F85D00102EDB = {
 			isa = PBXGroup;
 			children = (
+				691B2A2E25A201980069BD29 /* Problem-2d */,
 				69632F2D259BC30200BB4860 /* bin */,
 				69632F26259BBCC300BB4860 /* Makefile */,
 				69632F25259A8FA000BB4860 /* README.md */,
@@ -125,18 +139,21 @@
 		699070F32595FA8E00102EDB /* plots */ = {
 			isa = PBXGroup;
 			children = (
-				694228822599437800493CD5 /* improved_euler_method_d_y_input1.txt */,
-				694228812599437800493CD5 /* improved_euler_method_d_z_input1.txt */,
-				694228802599400000493CD5 /* euler_method_d_y_input1.txt */,
-				6942287F25993CB100493CD5 /* euler_method_d_z_input1.txt */,
-				69ACE1452598F90C00FDC62A /* improved_euler_method_y_input2.txt */,
-				69ACE1462598F90C00FDC62A /* improved_euler_method_z_input2.txt */,
-				69ACE1432598EF5A00FDC62A /* improved_euler_method_y_input1.txt */,
-				69ACE1442598EF5A00FDC62A /* improved_euler_method_z_input1.txt */,
-				69ACE1412598C62800FDC62A /* euler_method_y_input1.txt */,
-				69ACE1402598C62800FDC62A /* euler_method_y_input2.txt */,
-				69ACE13F2598C62800FDC62A /* euler_method_z_input1.txt */,
-				69ACE1422598C62800FDC62A /* euler_method_z_input2.txt */,
+				691B2A2625A201870069BD29 /* defferential.txt */,
+				691B2A2225A201870069BD29 /* euler_method_Psi_2d.txt */,
+				691B2A1F25A201870069BD29 /* euler_method_Psi_input2.txt */,
+				691B2A2B25A201870069BD29 /* euler_method_Psi.txt */,
+				691B2A2725A201870069BD29 /* euler_method_y_2d.txt */,
+				691B2A2325A201870069BD29 /* euler_method_z_2d.txt */,
+				691B2A2425A201870069BD29 /* euler_method_z_input2.txt */,
+				691B2A2025A201870069BD29 /* euler_method_z.txt */,
+				691B2A2A25A201870069BD29 /* improved_euler_method_Psi_2d.txt */,
+				691B2A2125A201870069BD29 /* improved_euler_method_Psi_input2.txt */,
+				691B2A2C25A201870069BD29 /* improved_euler_method_Psi.txt */,
+				691B2A2525A201870069BD29 /* improved_euler_method_y_2d.txt */,
+				691B2A2825A201870069BD29 /* improved_euler_method_z_2d.txt */,
+				691B2A2925A201870069BD29 /* improved_euler_method_z_input2.txt */,
+				691B2A2D25A201870069BD29 /* improved_euler_method_z.txt */,
 			);
 			path = plots;
 			sourceTree = "<group>";
@@ -229,6 +246,7 @@
 			files = (
 				69632F27259BBCC300BB4860 /* Makefile in Sources */,
 				699070E42595F85D00102EDB /* problem1b.c in Sources */,
+				691B2A3025A201DD0069BD29 /* problem2d.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
