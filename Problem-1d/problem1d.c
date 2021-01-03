@@ -56,12 +56,12 @@ int main(int argc, const char * argv[]) {
     for(int i = 0; i<=30000; i++, time+=h ) {
         
         z[i] = x_n;
-        x_n = x_n + h * fx(time, z[i], y_n);
-        y_n = y_n + h * fy(time, z[i], y_n);
+        x_n = x_n + h * fx(time, x_n, y_n);
+        y_n = y_n + h * fy(time, x_n, y_n);
         
         y[i] = w_n;
-        w_n = w_n + h * fw(time, y[i], u_n);
-        u_n = u_n + h * fu(time, y[i], u_n);
+        w_n = w_n + h * fw(time, w_n, u_n);
+        u_n = u_n + h * fu(time, w_n, u_n);
         
         t[i] = time;
     }
@@ -80,13 +80,13 @@ int main(int argc, const char * argv[]) {
     
     for(int i = 0; i<=30000; i++, time+=h ) {
         
-        z_improved[i]=x_n;
-        x_n = z_improved[i] + (h/2) * ( fx( time , z_improved[i], y_n) + fx( time+h, z_improved[i] + h * fx(time, z_improved[i], y_n), y_n + h * fy(time, z_improved[i], y_n) )  );
-        y_n = y_n           + (h/2) * ( fy( time , z_improved[i], y_n) + fy( time+h, z_improved[i] + h * fx(time, z_improved[i], y_n), y_n + h * fy(time, z_improved[i], y_n) )  );
+        z_improved[i] = x_n;
+        x_n = x_n + (h/2) * ( fx( time , x_n, y_n) + fx( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
+        y_n = y_n + (h/2) * ( fy( time , x_n, y_n) + fy( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
         
-        y_improved[i]=w_n;
-        w_n = y_improved[i] + (h/2) * ( fw( time , y_improved[i], u_n) + fw( time+h, y_improved[i] + h * fw(time, y_improved[i], u_n), u_n + h * fu(time, y_improved[i], u_n) )  );
-        u_n = u_n           + (h/2) * ( fu( time , y_improved[i], u_n) + fu( time+h, y_improved[i] + h * fw(time, y_improved[i], y_n), u_n + h * fu(time, y_improved[i], u_n) )  );
+        y_improved[i] = w_n;
+        w_n = w_n + (h/2) * ( fw( time , w_n, u_n) + fw( time+h, w_n + h * fw(time, w_n, u_n), u_n + h * fu(time, w_n, u_n) )  );
+        u_n = u_n + (h/2) * ( fu( time , w_n, u_n) + fu( time+h, w_n + h * fw(time, w_n, y_n), u_n + h * fu(time, w_n, u_n) )  );
     
     }
     /*----------------------------------------------*/
@@ -95,23 +95,24 @@ int main(int argc, const char * argv[]) {
     /*--------------------plotting--------------------------*/
     
     // plotting for euler method z and psi
-    char * commandsForGnuplot[] = {"set title \"Euler's method d\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_d_z_input1.txt' lt rgb \"red\""};
-    createPlotData(z, t, "../plots/euler_method_d_z_input1.txt", commandsForGnuplot);
+    char * commandsForGnuplot[] = {"set title \"Euler's method for z\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z.txt' lt rgb \"red\""};
+    createPlotData(z, t, "../plots/euler_method_z.txt", commandsForGnuplot);
     
-    
+    commandsForGnuplot[0]="set title \"Euler's method for Psi\"";
     commandsForGnuplot[2]="set ylabel \"orientation\"";
-    commandsForGnuplot[3]="plot '../plots/euler_method_d_y_input1.txt' lt rgb \"blue\"";
-    createPlotData(y, t, "../plots/euler_method_d_y_input1.txt", commandsForGnuplot);
+    commandsForGnuplot[3]="plot '../plots/euler_method_Psi.txt' lt rgb \"blue\"";
+    createPlotData(y, t, "../plots/euler_method_Psi.txt", commandsForGnuplot);
     
     // plotting for improved euler method z and psi
-    commandsForGnuplot[0]="set title \"Improved Euler's method d\"";
+    commandsForGnuplot[0]="set title \"Improved Euler's method z\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
-    commandsForGnuplot[3]="plot '../plots/improved_euler_method_d_z_input1.txt' lt rgb \"red\"";
-    createPlotData(z_improved, t, "../plots/improved_euler_method_d_z_input1.txt", commandsForGnuplot);
+    commandsForGnuplot[3]="plot '../plots/improved_euler_method_z.txt' lt rgb \"red\"";
+    createPlotData(z_improved, t, "../plots/improved_euler_method_z.txt", commandsForGnuplot);
     
+    commandsForGnuplot[0]="set title \"Improved Euler's method for Psi\"";
     commandsForGnuplot[2]="set ylabel \"orientation\"";
-    commandsForGnuplot[3]="plot '../plots/improved_euler_method_d_y_input1.txt' lt rgb \"blue\"";
-    createPlotData(y_improved, t, "../plots/improved_euler_method_d_y_input1.txt", commandsForGnuplot);
+    commandsForGnuplot[3]="plot '../plots/improved_euler_method_Psi.txt' lt rgb \"blue\"";
+    createPlotData(y_improved, t, "../plots/improved_euler_method_Psi.txt", commandsForGnuplot);
 
     return 0;
 }
