@@ -28,7 +28,7 @@ double z_des = (double)AM/200;
 #define fy(t, x, y) ( (Kpz * (z_des - x) - Kdz * y - Cz * fabs(y))/M)
 
 //prtotypes 
-void createPlotData(double y[], double t[], char* filename, char* commands[]);
+void createPlotData(double y[],double t[], char* filename, char* commands[]);
 
 int main(int argc, char * argv[]){
     int i;
@@ -38,7 +38,7 @@ int main(int argc, char * argv[]){
     double time = 0.0;
 
     for(i = 0; i<=30000; i++, time+=h){
-        dif[i] = -15.289 * exp(-0.278 * time) + 0.3545 * exp(-11.9904 * time) + 14.935;
+        dif[i] = -15.28949035 * exp(-0.278000182 * time) + 0.354490356 * exp(-11.990399818 * time) + 14.935;
         t[i] = time;
     }
 
@@ -78,8 +78,8 @@ int main(int argc, char * argv[]){
     /*--------------- Plotting ---------------*/
 
     // plotting for differential equation z
-    char * commandsForGnuplot[] = {"set title \"Differential Equation\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/defferential.txt' lt rgb \"red\" with lines"};
-    createPlotData(dif, t, "../plots/defferential.txt", commandsForGnuplot);
+    char * commandsForGnuplot[] = {"set title \"Differential Equation\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/differential.txt' lt rgb \"red\" with lines"};
+    createPlotData(dif, t, "../plots/differential.txt", commandsForGnuplot);
 
     // plotting for euler's method z and psi
     commandsForGnuplot[0]="set title \"Euler's method for z\"";
@@ -87,7 +87,7 @@ int main(int argc, char * argv[]){
     commandsForGnuplot[3]="plot '../plots/euler_method_z_2d.txt' lt rgb \"red\" with lines";
     createPlotData(z, t, "../plots/euler_method_z_2d.txt", commandsForGnuplot);
     
-    commandsForGnuplot[0]="set title \"Euler's method for Psi\"";
+    commandsForGnuplot[0]="set title \"Euler's method for y\"";
     commandsForGnuplot[2]="set ylabel \"velocity\"";
     commandsForGnuplot[3]="plot '../plots/euler_method_y_2d.txt' lt rgb \"blue\" with lines";
     createPlotData(y, t, "../plots/euler_method_y_2d.txt", commandsForGnuplot);
@@ -98,7 +98,7 @@ int main(int argc, char * argv[]){
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_z_2d.txt' lt rgb \"red\" with lines";
     createPlotData(z_improved, t, "../plots/improved_euler_method_z_2d.txt", commandsForGnuplot);
 
-    commandsForGnuplot[0]="set title \"Improved Euler's method for Psi \"";
+    commandsForGnuplot[0]="set title \"Improved Euler's method for y \"";
     commandsForGnuplot[2]="set ylabel \"velocity\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_y_2d.txt' lt rgb \"blue\" with lines";
     createPlotData(y_improved, t, "../plots/improved_euler_method_y_2d.txt", commandsForGnuplot);
@@ -113,7 +113,7 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
     fp=fopen(filename,"w");
 
     for(int i = 0; i<=30000; i++) {
-        fprintf(fp,"%lf\t %lf\n", t[i], y[i]);
+        fprintf(fp,"%.3lf\t %lf\n", t[i], y[i]);
     }
     
     for (int i=0; i < 4; i++)
