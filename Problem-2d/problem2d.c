@@ -28,7 +28,7 @@ double z_des = (double)AM/200;
 #define fy(t, x, y) ( (Kpz * (z_des - x) - Kdz * y - Cz * fabs(y))/M)
 
 //prtotypes 
-void createPlotData(double y[],double t[], char* filename, char* commands[]);
+void createPlotData(double y[], double t[], char* filename, char* commands[]);
 
 int main(int argc, char * argv[]){
     int i;
@@ -81,7 +81,7 @@ int main(int argc, char * argv[]){
     char * commandsForGnuplot[] = {"set title \"Differential Equation\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/differential.txt' lt rgb \"red\" with lines"};
     createPlotData(dif, t, "../plots/differential.txt", commandsForGnuplot);
 
-    // plotting for euler's method z and psi
+    // plotting for euler's method z and y
     commandsForGnuplot[0]="set title \"Euler's method for z\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
     commandsForGnuplot[3]="plot '../plots/euler_method_z_2d.txt' lt rgb \"red\" with lines";
@@ -92,7 +92,7 @@ int main(int argc, char * argv[]){
     commandsForGnuplot[3]="plot '../plots/euler_method_y_2d.txt' lt rgb \"blue\" with lines";
     createPlotData(y, t, "../plots/euler_method_y_2d.txt", commandsForGnuplot);
 
-    //plotting for improved euler's method z and psi
+    //plotting for improved euler's method z and y
     commandsForGnuplot[0]="set title \"Improved Euler's method z\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_z_2d.txt' lt rgb \"red\" with lines";
