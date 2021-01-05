@@ -1,7 +1,7 @@
 //
-//  problem2d.c
+//  	problem2d.c
 //
-//
+//	Created by Alexandros Alexiou,Petros Karampas, Nikos Amvazas.
 //
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,6 +35,7 @@ int main(int argc, char * argv[]){
     /*--------------- Αναλυτική λύση ΔΕ --------------*/
     double dif  [30001];
     double t    [30001];
+    
     double time = 0.0;
 
     for(i = 0; i<=30000; i++, time+=h){
@@ -75,6 +76,7 @@ int main(int argc, char * argv[]){
         y_n = y_n + (h/2) * ( fy( time , x_n, y_n) + fy( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
     }
 
+    
     /*--------------- Plotting ---------------*/
 
     // plotting for differential equation z
