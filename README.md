@@ -4,7 +4,18 @@ We used [gnuplot](http://www.gnuplot.info) for plotting.
 
 You can find the gnuplot docs [here](http://www.gnuplot.info/docs_5.4/Gnuplot_5_4.pdf).
 
-## Run
+<br>
+
+## Project structure
+Folders `Problem-1b`, `Problem-1d`, `Problem-2d` include the scripts for the solution of the problems.
+
+The `plots` folder includes  `.txt` files with the output values of the solutions. The scripts use these files to generate plots.
+
+The `bin` folder includes the unix executables after the compilation.
+
+<br>
+
+## Installation
 
 ### Install gnuplot
 Install  `gnuplot` in ubuntu linux,
@@ -17,7 +28,32 @@ Install  `gnuplot` in solus linux,
 sudo eopkg install gnuplot
 ~~~~
 
-### Build
+*`WARNING:`* If the scripts produce runtime errors try to uninstall and reinstall gnuplot by adding `-qt` to the above commands
+
+`Ubuntu`
+~~~~
+sudo apt-get update -y && sudo apt-get install -y gnuplot -qt
+~~~~
+
+`Solus`
+~~~~
+sudo eopkg install gnuplot -qt
+~~~~
+
+### Install make
+Install  `make` in ubuntu linux,
+~~~~
+sudo apt-get update -y && sudo apt-get install build-essential -y
+~~~~
+
+Install  `make` in solus linux check,
+~~~~
+sudo eopkg it -c system.devel 
+~~~~
+
+<br>
+
+## Build
 
 You need to have  `make` installed.
 
@@ -25,6 +61,25 @@ Run in `root` folder,
 ~~~~
 make
 ~~~~
-the binaries will be in the `bin` directory.
 
-#### You can find the report of the project [here](https://www.overleaf.com/project/5fe242d229fad94585ffe6e4).
+## Run the scripts
+Run in `bin` folder,
+~~~~
+./problem1b 1
+~~~~
+to run the solution of 1b using the first input
+
+~~~~
+./problem1b 2
+~~~~
+to run the solution of 1b using the second input
+
+~~~~
+./problem1d
+~~~~
+to run the solution of 1d
+
+~~~~
+./problem2d
+~~~~
+to run the solution of 2d
