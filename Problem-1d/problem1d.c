@@ -2,7 +2,7 @@
 //  problem1d.c
 //  Problem-1d
 //
-//  Created by Alexandros Alexiou,Petros Karampas, Nikos Amvazas.
+//  Created by Alexandros Alexiou, Petros Karampas, Nikos Amvazas.
 //
 
 #include <stdio.h>

@@ -1,7 +1,7 @@
 //
 //  	problem2d.c
 //
-//	Created by Alexandros Alexiou,Petros Karampas, Nikos Amvazas.
+//	Created by Alexandros Alexiou, Petros Karampas, Nikos Amvazas.
 //
 #include <stdio.h>
 #include <stdlib.h>

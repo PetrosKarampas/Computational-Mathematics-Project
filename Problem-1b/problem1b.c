@@ -2,7 +2,7 @@
 //  problem1b.c
 //  Computational Mathematics Project
 //
-//  Created by Alexandros Alexiou,Petros Karampas, Nikos Amvazas.
+//  Created by Alexandros Alexiou, Petros Karampas, Nikos Amvazas.
 //
 #include <stdio.h>
 #include <stdlib.h>
