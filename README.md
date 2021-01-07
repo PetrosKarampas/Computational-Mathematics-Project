@@ -41,12 +41,12 @@ sudo eopkg install gnuplot -qt
 ~~~~
 
 ### Install make
-Install  `make` in ubuntu linux,
+Install  `make` in `ubuntu linux`,
 ~~~~
 sudo apt-get update -y && sudo apt-get install build-essential -y
 ~~~~
 
-Install  `make` in solus linux check,
+Install  `make` in `solus linux`,
 ~~~~
 sudo eopkg it -c system.devel 
 ~~~~
@@ -61,6 +61,8 @@ Run in `root` folder,
 ~~~~
 make
 ~~~~
+
+<br>
 
 ## Run the scripts
 Run in `bin` folder,
