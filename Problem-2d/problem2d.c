@@ -25,7 +25,7 @@ double z_des = (double)AM / 200;
 
 //Macros
 #define fx(t, x, y) (y)
-#define fy(t, x, y) ( (Kpz * (z_des - x) - Kdz * y - Cz * fabs(y))/M)
+#define fy(t, x, y) ( (Kpz * (z_des - x) - Kdz * y - Cz * y)/M)
 
 //prtotypes 
 void createPlotData(double y[], double t[], char* filename, char* commands[]);
@@ -33,8 +33,8 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]);
 int main(int argc, char * argv[]){
     int i;
     /*--------------- Αναλυτική λύση ΔΕ --------------*/
-    double dif  [30001];
-    double t    [30001];
+    double dif[30001];
+    double t[30001];
     
     double time = 0.0;
 
