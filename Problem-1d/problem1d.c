@@ -25,11 +25,11 @@
 #define h       0.001
 
 // globals
-double psi0 = (double)AM/10000;
-double z_des = (double)AM/200;
-double psi_des = (double)-AM/3000;
-double Cz = 3 + (double)AM/5000;
-double Kdz = 15 + (double)AM/1000;
+double psi0     = (double)AM / 10000;
+double z_des    = (double)AM / 200;
+double psi_des  = (double) - AM/3000;
+double Cz       = 3 + (double)AM / 5000;
+double Kdz      = 15 + (double)AM / 1000;
 
 //Macros
 #define fx(t, x, y) (y)

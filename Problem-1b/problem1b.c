@@ -22,9 +22,9 @@
 // globals
 double fz;
 double tz;
-double z0 = (double)AM/1000;
-double Cz = 3.0-((double)AM/5000);
-double Cpsi = 5.0-((double)AM/5000);
+double z0   = (double)AM / 1000;
+double Cz   = 3.0-((double)AM / 5000);
+double Cpsi = 5.0-((double)AM / 5000);
 
 //Macros
 #define fx(t, x, y) (y)

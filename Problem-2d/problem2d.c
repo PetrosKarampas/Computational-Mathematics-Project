@@ -18,10 +18,10 @@
 
 
 //globals
-double  fz;
-double  z0 = 0;
-double  Cz = 4 - ((double)AM/5000);
-double z_des = (double)AM/200;
+double fz;
+double z0    = 0;
+double Cz    = 4 - ((double)AM / 5000);
+double z_des = (double)AM / 200;
 
 //Macros
 #define fx(t, x, y) (y)
