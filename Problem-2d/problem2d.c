@@ -29,6 +29,7 @@ double z_des = (double)AM / 200;
 
 //prototypes
 void createPlotData(double y[], double t[], char* filename, char* commands[]);
+void createErrorData(double errors_euler[], double errors_improved_euler[], double t[]);
 double fx(double t, double x, double y);
 double fy(double t, double x, double y);
 
@@ -106,7 +107,15 @@ int main(int argc, char * argv[]){
     commandsForGnuplot[2]="set ylabel \"velocity\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_y_2d.txt' lt rgb \"blue\" with lines";
     createPlotData(y_improved, t, "../plots/improved_euler_method_y_2d.txt", commandsForGnuplot);
-
+    
+    // calculate truncation error
+    double errors_euler[30001];
+    double errors_improved_euler[30001];
+    for (i = 0; i<=30000; i++) {
+        errors_euler[i]          = fabs(dif[i] - z[i]);
+        errors_improved_euler[i] = fabs(dif[i] - z_improved[i]);
+    }
+    createErrorData(errors_euler, errors_improved_euler, t);
     return 0;
 }
 
@@ -123,6 +132,25 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
     for (int i=0; i < 4; i++)
     {
         fprintf(gnuplotPipe, "%s \n", commands[i]); //Send commands to gnuplot one by one.
+    }
+}
+
+// create data and open a pipe to the gnuplot programm and feed it commands to create the plots
+void createErrorData(double errors_euler[], double errors_improved_euler[], double t[]) {
+    FILE* gnuplotPipe = popen ("gnuplot -persistent", "w");
+    
+    FILE* euler_error_fp = fopen("errors_E.txt", "w");
+    FILE* improved_euler_error_fp = fopen("errors_BE.txt", "w");
+    
+    for(int i = 0; i<=30000; i++) {
+        fprintf(euler_error_fp,"%.3lf\t %lf\n", t[i], errors_euler[i]);
+        fprintf(improved_euler_error_fp,"%.3lf\t %lf\n", t[i], errors_improved_euler[i]);
+    }
+    
+    char * commandsForGnuplot[] = {"set title \"Truncation Error\"", "set xlabel \"time\"", "set ylabel \"error\"", "plot '../plots/errors_E.txt' using 1:2 title 'e_n(E)' with lines, '../plots/errors_BE.txt' using 1:2 title 'e_n(BE)' with lines"};
+    for (int i=0; i < 4; i++)
+    {
+        fprintf(gnuplotPipe, "%s \n", commandsForGnuplot[i]); //Send commands to gnuplot one by one.
     }
 }
 
