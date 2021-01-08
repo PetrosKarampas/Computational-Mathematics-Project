@@ -28,9 +28,9 @@ double Cpsi = 5.0-((double)AM / 5000);
 
 //Macros
 //#define fx(t, x, y) (y)
-//#define fy(t, x, y) ((fz - (g * M) - (Cz * fabs(y) * y))/M)
+//#define fy(t, x, y) (((fz) - (g * M) - ((Cz) * fabs(y) * (y)))/M)
 //#define fw(t, w, u) (u)
-//#define fu(t, w, u) ((tz - (0.5 * Cpsi *  fabs(u) * u))/Iz)
+//#define fu(t, w, u) (((tz) - (0.5 * (Cpsi) *  (fabs(u)) * (u)))/Iz)
 
 //prototypes
 void createPlotData(double y[], double t[], char* filename, char* commands[]);
