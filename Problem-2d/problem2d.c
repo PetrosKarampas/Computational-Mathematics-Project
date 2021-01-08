@@ -19,20 +19,22 @@
 
 //globals
 double fz;
-double z0    = 0;
+double z0    = 0.0;
 double Cz    = 4 - ((double)AM / 5000);
 double z_des = (double)AM / 200;
 
 //Macros
-#define fx(t, x, y) (y)
-#define fy(t, x, y) ( (Kpz * (z_des - x) - Kdz * y - Cz * y)/M)
+//#define fx(t, x, y) (y)
+//#define fy(t, x, y) ( (Kpz * (z_des - x) - Kdz * y - Cz * y)/M)
 
-//prtotypes 
+//prototypes
 void createPlotData(double y[], double t[], char* filename, char* commands[]);
+double fx(double t, double x, double y);
+double fy(double t, double x, double y);
 
 int main(int argc, char * argv[]){
     int i;
-    /*--------------- Αναλυτική λύση ΔΕ --------------*/
+    /*--------------- Analytical solution of the differential equation-------------*/
     double dif[30001];
     double t[30001];
     
@@ -72,8 +74,8 @@ int main(int argc, char * argv[]){
         z_improved[i] = x_n;
         y_improved[i] = y_n;
         
-        x_n = x_n + (h/2) * ( fx( time , x_n, y_n) + fx( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
-        y_n = y_n + (h/2) * ( fy( time , x_n, y_n) + fy( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
+        x_n = x_n + (h/2) * ( fx( time, x_n, y_n) + fx( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
+        y_n = y_n + (h/2) * ( fy( time, x_n, y_n) + fy( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
     }
 
     
@@ -124,3 +126,10 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
     }
 }
 
+double fx(double t, double x, double y){
+    return y;
+}
+
+double fy(double t, double x, double y){
+    return (Kpz * (z_des - x) - Kdz * y - (Cz * y))/M;
+}

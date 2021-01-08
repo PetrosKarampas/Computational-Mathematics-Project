@@ -27,14 +27,17 @@ double Cz   = 3.0-((double)AM / 5000);
 double Cpsi = 5.0-((double)AM / 5000);
 
 //Macros
-#define fx(t, x, y) (y)
-#define fy(t, x, y) ((fz - (g * M) - (Cz * fabs(y) * y))/M)
-#define fw(t, w, u) (u)
-#define fu(t, w, u) ((tz - (0.5 * Cpsi *  fabs(u) * u))/Iz)
+//#define fx(t, x, y) (y)
+//#define fy(t, x, y) ((fz - (g * M) - (Cz * fabs(y) * y))/M)
+//#define fw(t, w, u) (u)
+//#define fu(t, w, u) ((tz - (0.5 * Cpsi *  fabs(u) * u))/Iz)
 
-//prtotypes
+//prototypes
 void createPlotData(double y[], double t[], char* filename, char* commands[]);
-
+double fx(double t, double x, double y);
+double fy(double t, double x, double y);
+double fw(double t, double w, double u);
+double fu(double t, double w, double u);
 
 int main(int argc, const char* argv[]) {
     
@@ -92,12 +95,12 @@ int main(int argc, const char* argv[]) {
     for(int i = 0; i<=30000; i++, time+=h ) {
         
         z_improved[i]=x_n;
-        x_n = x_n + (h/2) * ( fx( time , x_n, y_n) + fx( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
-        y_n = y_n + (h/2) * ( fy( time , x_n, y_n) + fy( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
+        x_n = x_n + (h/2) * ( fx( time, x_n, y_n) + fx( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
+        y_n = y_n + (h/2) * ( fy( time, x_n, y_n) + fy( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
         
         psi_improved[i]=w_n;
-        w_n = w_n + (h/2) * ( fw( time , w_n, u_n) + fw( time+h, w_n + h * fw(time, w_n, u_n), u_n + h * fu(time, w_n, u_n) )  );
-        u_n = u_n + (h/2) * ( fu( time , w_n, u_n) + fu( time+h, w_n + h * fw(time, w_n, y_n), u_n + h * fu(time, w_n, u_n) )  );
+        w_n = w_n + (h/2) * ( fw( time, w_n, u_n) + fw( time+h, w_n + h * fw(time, w_n, u_n), u_n + h * fu(time, w_n, u_n) )  );
+        u_n = u_n + (h/2) * ( fu( time, w_n, u_n) + fu( time+h, w_n + h * fw(time, w_n, y_n), u_n + h * fu(time, w_n, u_n) )  );
     
     }
     /*----------------------------------------------*/
@@ -160,4 +163,20 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
     {
         fprintf(gnuplotPipe, "%s \n", commands[i]); //Send commands to gnuplot one by one.
     }
+}
+
+double fx(double t, double x, double y){
+    return (y);
+}
+
+double fy(double t, double x, double y){
+    return (fz - (g * M) - (Cz * fabs(y) * y))/M;
+}
+
+double fw(double t, double w, double u){
+    return (u);
+}
+
+double fu(double t, double w, double u){
+    return (tz - (0.5 * Cpsi *  fabs(u) * u))/Iz;
 }
