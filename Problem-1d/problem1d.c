@@ -46,50 +46,57 @@ double fu(double t, double w, double u);
 
 int main(int argc, const char * argv[]) {
     /*--------------- Euler's Method --------------*/
-    double z [30001];
+    double x [30001];
     double y [30001];
+   
+    double w [30001];
+    double u [30001];
+    
     double t [30001];
     double time = 0.0;
-    double x_n = z0;
-    double y_n = zpar0;
     
-    double w_n = psi0;
-    double u_n = psipar0;
+    x[0] = z0;
+    y[0] = zpar0;
     
-    for(int i = 0; i<=30000; i++, time+=h ) {
+    w[0] = psi0;
+    u[0] = psipar0;
+
+    t[0] = 0.0;
+    time = h;
+
+    for(int i = 0; i<30000; i++, time+=h ) {
         
-        z[i] = x_n;
-        x_n  = x_n + h * fx(time, x_n, y_n);
-        y_n  = y_n + h * fy(time, x_n, y_n);
+        x[i+1]  = x[i] + h * fx(time, x[i], y[i]);
+        y[i+1]  = y[i] + h * fy(time, x[i], y[i]);
         
-        y[i] = w_n;
-        w_n  = w_n + h * fw(time, w_n, u_n);
-        u_n  = u_n + h * fu(time, w_n, u_n);
+        w[i+1]  = w[i] + h * fw(time, w[i], u[i]);
+        u[i+1]  = u[i] + h * fu(time, w[i], u[i]);
         
-        t[i] = time;
+        t[i+1] = time;
     }
     
     /*--------------- Improved Euler's Method --------------*/
-    double z_improved [30001];
-    double y_improved [30001];
+    double x_imp [30001];
+    double y_imp [30001];
+    
+    double w_imp [30001];
+    double u_imp [30001];
     
     time = 0.0;
     
-    x_n = z0;
-    y_n = zpar0;
+    x_imp[0] = z0;
+    y_imp[0] = zpar0;
     
-    w_n = psi0;
-    u_n = psipar0;
+    w_imp[0] = psi0;
+    u_imp[0] = psipar0;
     
-    for(int i = 0; i<=30000; i++, time+=h ) {
+    for(int i = 0; i<30000; i++, time+=h ) {
         
-        z_improved[i] = x_n;
-        x_n = x_n + (h/2) * ( fx( time, x_n, y_n) + fx( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
-        y_n = y_n + (h/2) * ( fy( time, x_n, y_n) + fy( time+h, x_n + h * fx(time, x_n, y_n), y_n + h * fy(time, x_n, y_n) )  );
+        x_imp[i+1] = x_imp[i] + (h/2) * ( fx( time, x_imp[i], y_imp[i]) + fx( time+h, x_imp[i] + h * fx(time, x_imp[i], y_imp[i]), y_imp[i] + h * fy(time, x_imp[i], y_imp[i]) )  );
+        y_imp[i+1] = y_imp[i] + (h/2) * ( fy( time, x_imp[i], y_imp[i]) + fy( time+h, x_imp[i] + h * fx(time, x_imp[i], y_imp[i]), y_imp[i] + h * fy(time, x_imp[i], y_imp[i]) )  );
         
-        y_improved[i] = w_n;
-        w_n = w_n + (h/2) * ( fw( time, w_n, u_n) + fw( time+h, w_n + h * fw(time, w_n, u_n), u_n + h * fu(time, w_n, u_n) )  );
-        u_n = u_n + (h/2) * ( fu( time, w_n, u_n) + fu( time+h, w_n + h * fw(time, w_n, y_n), u_n + h * fu(time, w_n, u_n) )  );
+        w_imp[i+1] = w_imp[i] + (h/2) * ( fw( time, w_imp[i], u_imp[i]) + fw( time+h, w_imp[i] + h * fw(time, w_imp[i], u_imp[i]), u_imp[i] + h * fu(time, w_imp[i], u_imp[i]) )  );
+        u_imp[i+1] = u_imp[i] + (h/2) * ( fu( time, w_imp[i], u_imp[i]) + fu( time+h, w_imp[i] + h * fw(time, w_imp[i], u_imp[i]), u_imp[i] + h * fu(time, w_imp[i], u_imp[i]) )  );
     
     }
     /*----------------------------------------------*/
@@ -99,23 +106,23 @@ int main(int argc, const char * argv[]) {
     
     // plotting for euler method z and psi
     char * commandsForGnuplot[] = {"set title \"Euler's method for z\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z.txt' lt rgb \"red\" with lines"};
-    createPlotData(z, t, "../plots/euler_method_z.txt", commandsForGnuplot);
+    createPlotData(x, t, "../plots/euler_method_z.txt", commandsForGnuplot);
     
     commandsForGnuplot[0]="set title \"Euler's method for Psi\"";
     commandsForGnuplot[2]="set ylabel \"orientation\"";
     commandsForGnuplot[3]="plot '../plots/euler_method_Psi.txt' lt rgb \"blue\" with lines";
-    createPlotData(y, t, "../plots/euler_method_Psi.txt", commandsForGnuplot);
+    createPlotData(w, t, "../plots/euler_method_Psi.txt", commandsForGnuplot);
     
     // plotting for improved euler method z and psi
     commandsForGnuplot[0]="set title \"Improved Euler's method z\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_z.txt' lt rgb \"red\" with lines";
-    createPlotData(z_improved, t, "../plots/improved_euler_method_z.txt", commandsForGnuplot);
+    createPlotData(x_imp, t, "../plots/improved_euler_method_z.txt", commandsForGnuplot);
     
     commandsForGnuplot[0]="set title \"Improved Euler's method for Psi\"";
     commandsForGnuplot[2]="set ylabel \"orientation\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_Psi.txt' lt rgb \"blue\" with lines";
-    createPlotData(y_improved, t, "../plots/improved_euler_method_Psi.txt", commandsForGnuplot);
+    createPlotData(w_imp, t, "../plots/improved_euler_method_Psi.txt", commandsForGnuplot);
 
     return 0;
 }
@@ -128,7 +135,7 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
     fp=fopen(filename,"w");
 
     for(int i = 0; i<=30000; i++) {
-        fprintf(fp,"%lf\t %lf\n", t[i], y[i]);
+        fprintf(fp,"%.3lf\t %lf\n", t[i], y[i]);
     }
     
     for (int i=0; i < 4; i++)
