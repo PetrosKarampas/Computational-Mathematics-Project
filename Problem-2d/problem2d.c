@@ -143,7 +143,7 @@ void createErrorData(double errors_euler[], double errors_improved_euler[], doub
         fprintf(improved_euler_error_fp,"%.3lf\t %lf\n", t[i], errors_improved_euler[i]);
     }
     
-    char * commandsForGnuplot[] = {"set title \"Truncation Error\"", "set xlabel \"time\"", "set ylabel \"error\"", "plot '../plots/errors_E.txt' using 1:2 title 'e_n(E)' with lines, '../plots/errors_BE.txt' using 1:2 title 'e_n(BE)' with lines"};
+    char * commandsForGnuplot[] = {"set title \"Truncation Error\"", "set xlabel \"time\"", "set ylabel \"error\"", "plot '../plots/errors_E.txt' using 1:2 title 'e_n(E)' lw 3 lt rgb \"#00FF00\" with lines, '../plots/errors_BE.txt' using 1:2 title 'e_n(BE)'lw 4 lt rgb \"#FF00FF\" with lines"};
     for (int i=0; i < 4; i++)
     {
         fprintf(gnuplotPipe, "%s \n", commandsForGnuplot[i]); //Send commands to gnuplot one by one.

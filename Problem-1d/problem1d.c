@@ -66,11 +66,11 @@ int main(int argc, const char * argv[]) {
 
     for(int i = 0; i<30000; i++, time+=h ) {
         
-        x[i+1]  = x[i] + h * fx(time, x[i], y[i]);
-        y[i+1]  = y[i] + h * fy(time, x[i], y[i]);
+        x[i+1] = x[i] + h * fx(time, x[i], y[i]);
+        y[i+1] = y[i] + h * fy(time, x[i], y[i]);
         
-        w[i+1]  = w[i] + h * fw(time, w[i], u[i]);
-        u[i+1]  = u[i] + h * fu(time, w[i], u[i]);
+        w[i+1] = w[i] + h * fw(time, w[i], u[i]);
+        u[i+1] = u[i] + h * fu(time, w[i], u[i]);
         
         t[i+1] = time;
     }
