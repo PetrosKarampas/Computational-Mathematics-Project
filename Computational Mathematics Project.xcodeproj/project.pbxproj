@@ -44,14 +44,12 @@
 		6960E30125A524CA00150D6B /* differential.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = differential.txt; sourceTree = "<group>"; };
 		6960E30225A524CA00150D6B /* errors_BE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = errors_BE.txt; sourceTree = "<group>"; };
 		6960E30325A524CA00150D6B /* euler_method_z_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_input2.txt; sourceTree = "<group>"; };
-		6960E30425A524CA00150D6B /* improved_euler_method_Psi_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_Psi_2d.txt; sourceTree = "<group>"; };
 		6960E30525A524CA00150D6B /* euler_method_z_input1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_input1.txt; sourceTree = "<group>"; };
 		6960E30625A524CA00150D6B /* euler_method_z.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z.txt; sourceTree = "<group>"; };
 		6960E30725A524CA00150D6B /* euler_method_Psi_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_Psi_input2.txt; sourceTree = "<group>"; };
 		6960E30825A524CA00150D6B /* euler_method_Psi.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_Psi.txt; sourceTree = "<group>"; };
 		6960E30925A524CA00150D6B /* improved_euler_method_z_input2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_z_input2.txt; sourceTree = "<group>"; };
 		6960E30A25A524CA00150D6B /* improved_euler_method_z.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_z.txt; sourceTree = "<group>"; };
-		6960E30B25A524CA00150D6B /* euler_method_Psi_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_Psi_2d.txt; sourceTree = "<group>"; };
 		6960E30C25A524CA00150D6B /* errors_E.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = errors_E.txt; sourceTree = "<group>"; };
 		6960E30D25A524CA00150D6B /* improved_euler_method_z_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = improved_euler_method_z_2d.txt; sourceTree = "<group>"; };
 		6960E30E25A524CA00150D6B /* euler_method_z_2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = euler_method_z_2d.txt; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				6960E30125A524CA00150D6B /* differential.txt */,
 				6960E30225A524CA00150D6B /* errors_BE.txt */,
 				6960E30C25A524CA00150D6B /* errors_E.txt */,
-				6960E30B25A524CA00150D6B /* euler_method_Psi_2d.txt */,
 				6960E30F25A524CA00150D6B /* euler_method_Psi_input1.txt */,
 				6960E30725A524CA00150D6B /* euler_method_Psi_input2.txt */,
 				6960E30825A524CA00150D6B /* euler_method_Psi.txt */,
@@ -157,7 +154,6 @@
 				6960E30525A524CA00150D6B /* euler_method_z_input1.txt */,
 				6960E30325A524CA00150D6B /* euler_method_z_input2.txt */,
 				6960E30625A524CA00150D6B /* euler_method_z.txt */,
-				6960E30425A524CA00150D6B /* improved_euler_method_Psi_2d.txt */,
 				6960E31125A524CA00150D6B /* improved_euler_method_Psi_input1.txt */,
 				6960E31025A524CA00150D6B /* improved_euler_method_Psi_input2.txt */,
 				6960E31225A524CA00150D6B /* improved_euler_method_Psi.txt */,

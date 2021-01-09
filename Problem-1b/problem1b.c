@@ -163,7 +163,7 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
     fp=fopen(filename,"w");
 
     for(int i = 0; i<=30000; i++) {
-        fprintf(fp,"%lf\t %lf\n", t[i], y[i]);
+        fprintf(fp,"%lf\t %.10lf\n", t[i], y[i]);
     }
     
     for (int i=0; i < 4; i++)

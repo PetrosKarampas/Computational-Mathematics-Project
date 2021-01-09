@@ -122,7 +122,7 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
     fp=fopen(filename,"w");
 
     for(int i = 0; i<=30000; i++) {
-        fprintf(fp,"%.3lf\t %lf\n", t[i], y[i]);
+        fprintf(fp,"%.3lf\t %.10lf\n", t[i], y[i]);
     }
     
     for (int i=0; i < 4; i++)
@@ -139,8 +139,8 @@ void createErrorData(double errors_euler[], double errors_improved_euler[], doub
     FILE* improved_euler_error_fp = fopen("../plots/errors_BE.txt", "w");
     
     for(int i = 0; i<=30000; i++) {
-        fprintf(euler_error_fp,"%.3lf\t %lf\n", t[i], errors_euler[i]);
-        fprintf(improved_euler_error_fp,"%.3lf\t %lf\n", t[i], errors_improved_euler[i]);
+        fprintf(euler_error_fp,"%.3lf\t %.10lf\n", t[i], errors_euler[i]);
+        fprintf(improved_euler_error_fp,"%.3lf\t %.10lf\n", t[i], errors_improved_euler[i]);
     }
     
     char * commandsForGnuplot[] = {"set title \"Truncation Error\"", "set xlabel \"time\"", "set ylabel \"error\"", "plot '../plots/errors_E.txt' using 1:2 title 'e_n(E)' lw 3 lt rgb \"#00FF00\" with lines, '../plots/errors_BE.txt' using 1:2 title 'e_n(BE)'lw 4 lt rgb \"#FF00FF\" with lines"};
