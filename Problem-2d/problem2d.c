@@ -16,7 +16,6 @@
 #define Kdz     15
 #define h       0.001
 
-
 //globals
 double fz;
 double z0    = 0;
@@ -28,8 +27,8 @@ double z_des = (double)AM / 200;
 //#define fy(t, x, y) (((((Kpz) * ((z_des) - (x))) - ((Kdz) * (y)) - ((Cz) * (y)))/(M)))
 
 //prototypes
-void createPlotData(double y[], double t[], char* filename, char* commands[]);
-void createErrorData(double errors_euler[], double errors_improved_euler[], double t[]);
+void createPlot(double y[], double t[], char* filename, char* commands[]);
+void createTruncationErrorPlot(double errors_euler[], double errors_improved_euler[], double t[]);
 double fx(double t, double x, double y);
 double fy(double t, double x, double y);
 
@@ -80,29 +79,29 @@ int main(int argc, char * argv[]){
 
     // plotting for differential equation z
     char * commandsForGnuplot[] = {"set title \"Differential Equation\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/differential.txt' lt rgb \"red\" with lines"};
-    createPlotData(dif, t, "../plots/differential.txt", commandsForGnuplot);
+    createPlot(dif, t, "../plots/differential.txt", commandsForGnuplot);
 
     // plotting for euler's method z and y
     commandsForGnuplot[0]="set title \"Euler's method for z\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
     commandsForGnuplot[3]="plot '../plots/euler_method_z_2d.txt' lt rgb \"red\" with lines";
-    createPlotData(x, t, "../plots/euler_method_z_2d.txt", commandsForGnuplot);
+    createPlot(x, t, "../plots/euler_method_z_2d.txt", commandsForGnuplot);
     
     commandsForGnuplot[0]="set title \"Euler's method for y\"";
     commandsForGnuplot[2]="set ylabel \"velocity\"";
     commandsForGnuplot[3]="plot '../plots/euler_method_y_2d.txt' lt rgb \"blue\" with lines";
-    createPlotData(y, t, "../plots/euler_method_y_2d.txt", commandsForGnuplot);
+    createPlot(y, t, "../plots/euler_method_y_2d.txt", commandsForGnuplot);
 
     //plotting for improved euler's method z and y
     commandsForGnuplot[0]="set title \"Improved Euler's method z\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_z_2d.txt' lt rgb \"red\" with lines";
-    createPlotData(x_imp, t, "../plots/improved_euler_method_z_2d.txt", commandsForGnuplot);
+    createPlot(x_imp, t, "../plots/improved_euler_method_z_2d.txt", commandsForGnuplot);
 
     commandsForGnuplot[0]="set title \"Improved Euler's method for y \"";
     commandsForGnuplot[2]="set ylabel \"velocity\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_y_2d.txt' lt rgb \"blue\" with lines";
-    createPlotData(y_imp, t, "../plots/improved_euler_method_y_2d.txt", commandsForGnuplot);
+    createPlot(y_imp, t, "../plots/improved_euler_method_y_2d.txt", commandsForGnuplot);
     
     // calculate truncation error
     double errors_euler[30001];
@@ -111,12 +110,12 @@ int main(int argc, char * argv[]){
         errors_euler[i]          = fabs(dif[i] - x[i]);
         errors_improved_euler[i] = fabs(dif[i] - x_imp[i]);
     }
-    createErrorData(errors_euler, errors_improved_euler, t);
+    createTruncationErrorPlot(errors_euler, errors_improved_euler, t);
     return 0;
 }
 
-// create data and open a pipe to the gnuplot programm and feed it commands to create the plots
-void createPlotData(double y[], double t[], char* filename, char* commands[]) {
+// create data and open a pipe to the gnuplot programm and feed it commands to create the plot
+void createPlot(double y[], double t[], char* filename, char* commands[]) {
     FILE * gnuplotPipe = popen ("gnuplot -persistent", "w");
     FILE *fp=NULL;
     fp=fopen(filename,"w");
@@ -125,14 +124,13 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
         fprintf(fp,"%.3lf\t %.10lf\n", t[i], y[i]);
     }
     
-    for (int i=0; i < 4; i++)
-    {
+    for (int i=0; i < 4; i++){
         fprintf(gnuplotPipe, "%s \n", commands[i]); //Send commands to gnuplot one by one.
     }
 }
 
-// create data and open a pipe to the gnuplot programm and feed it commands to create the plots
-void createErrorData(double errors_euler[], double errors_improved_euler[], double t[]) {
+// create data and open a pipe to the gnuplot programm and feed it commands to create the plot
+void createTruncationErrorPlot(double errors_euler[], double errors_improved_euler[], double t[]) {
     FILE* gnuplotPipe = popen ("gnuplot -persistent", "w");
     
     FILE* euler_error_fp = fopen("../plots/errors_E.txt", "w");
@@ -144,8 +142,7 @@ void createErrorData(double errors_euler[], double errors_improved_euler[], doub
     }
     
     char * commandsForGnuplot[] = {"set title \"Truncation Error\"", "set xlabel \"time\"", "set ylabel \"error\"", "plot '../plots/errors_E.txt' using 1:2 title 'e_n(E)' lw 3 lt rgb \"#00FF00\" with lines, '../plots/errors_BE.txt' using 1:2 title 'e_n(BE)'lw 4 lt rgb \"#FF00FF\" with lines"};
-    for (int i=0; i < 4; i++)
-    {
+    for (int i=0; i < 4; i++){
         fprintf(gnuplotPipe, "%s \n", commandsForGnuplot[i]); //Send commands to gnuplot one by one.
     }
 }

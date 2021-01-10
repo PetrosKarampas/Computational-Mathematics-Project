@@ -38,7 +38,7 @@ double Kdz      = 15 + (double)AM / 1000;
 //#define fu(t, w, u) ( (((Kp_psi) * ((psi_des)-(w))) - ((Kd_psi) * (u)) - (0.5 * (Cpsi) * (fabs(u)) * (u)) )/(Iz))
 
 //prototypes
-void createPlotData(double y[], double t[], char* filename, char* commands[]);
+void createPlot(double y[], double t[], char* filename, char* commands[]);
 double fx(double t, double x, double y);
 double fy(double t, double x, double y);
 double fw(double t, double w, double u);
@@ -106,30 +106,30 @@ int main(int argc, const char * argv[]) {
     
     // plotting for euler method z and psi
     char * commandsForGnuplot[] = {"set title \"Euler's method for z\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z.txt' lt rgb \"red\" with lines"};
-    createPlotData(x, t, "../plots/euler_method_z.txt", commandsForGnuplot);
+    createPlot(x, t, "../plots/euler_method_z.txt", commandsForGnuplot);
     
     commandsForGnuplot[0]="set title \"Euler's method for Psi\"";
     commandsForGnuplot[2]="set ylabel \"orientation\"";
     commandsForGnuplot[3]="plot '../plots/euler_method_Psi.txt' lt rgb \"blue\" with lines";
-    createPlotData(w, t, "../plots/euler_method_Psi.txt", commandsForGnuplot);
+    createPlot(w, t, "../plots/euler_method_Psi.txt", commandsForGnuplot);
     
     // plotting for improved euler method z and psi
     commandsForGnuplot[0]="set title \"Improved Euler's method z\"";
     commandsForGnuplot[2]="set ylabel \"displacement\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_z.txt' lt rgb \"red\" with lines";
-    createPlotData(x_imp, t, "../plots/improved_euler_method_z.txt", commandsForGnuplot);
+    createPlot(x_imp, t, "../plots/improved_euler_method_z.txt", commandsForGnuplot);
     
     commandsForGnuplot[0]="set title \"Improved Euler's method for Psi\"";
     commandsForGnuplot[2]="set ylabel \"orientation\"";
     commandsForGnuplot[3]="plot '../plots/improved_euler_method_Psi.txt' lt rgb \"blue\" with lines";
-    createPlotData(w_imp, t, "../plots/improved_euler_method_Psi.txt", commandsForGnuplot);
+    createPlot(w_imp, t, "../plots/improved_euler_method_Psi.txt", commandsForGnuplot);
 
     return 0;
 }
 
 
 // create data and open a pipe to the gnuplot programm and feed it commands to create the plots
-void createPlotData(double y[], double t[], char* filename, char* commands[]) {
+void createPlot(double y[], double t[], char* filename, char* commands[]) {
     FILE * gnuplotPipe = popen ("gnuplot -persistent", "w");
     FILE *fp=NULL;
     fp=fopen(filename,"w");
@@ -138,8 +138,7 @@ void createPlotData(double y[], double t[], char* filename, char* commands[]) {
         fprintf(fp,"%.3lf\t %.10lf\n", t[i], y[i]);
     }
     
-    for (int i=0; i < 4; i++)
-    {
+    for (int i=0; i < 4; i++){
         fprintf(gnuplotPipe, "%s \n", commands[i]); //Send commands to gnuplot one by one.
     }
 }
