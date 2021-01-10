@@ -33,16 +33,10 @@ double Cz       = 3 + (double)AM / 5000;
 double Kdz      = 15 + (double)AM / 1000;
 
 //Macros
-//#define fx(t, x, y) (y)
-//#define fy(t, x, y) ( (((Kpz) * ((z_des) - (x))) - ((Kdz) * (y)) - ((Cz) * (fabs(y)) * (y)) )/(M))
-//#define fw(t, w, u) (u)
-//#define fu(t, w, u) ( (((Kp_psi) * ((psi_des)-(w))) - ((Kd_psi) * (u)) - (0.5 * (Cpsi) * (fabs(u)) * (u)) )/(Iz))
-
-//prototypes
-double fx(double t, double x, double y);
-double fy(double t, double x, double y);
-double fw(double t, double w, double u);
-double fu(double t, double w, double u);
+#define fx(t, x, y) (y)
+#define fy(t, x, y) ( (((Kpz) * ((z_des) - (x))) - ((Kdz) * (y)) - ((Cz) * (fabs(y)) * (y)) )/(M))
+#define fw(t, w, u) (u)
+#define fu(t, w, u) ( (((Kp_psi) * ((psi_des)-(w))) - ((Kd_psi) * (u)) - (0.5 * (Cpsi) * (fabs(u)) * (u)) )/(Iz))
 
 int main(int argc, const char * argv[]) {
     /*--------------- Euler's Method --------------*/
@@ -111,17 +105,4 @@ int main(int argc, const char * argv[]) {
     createPlot("../plots/improved_euler_method_z.txt", "Improved Euler's method z", "displacement", "../plots/improved\\_euler\\_method\\_z.txt", "#FF0000");
     createPlot("../plots/improved_euler_method_Psi.txt", "Improved Euler's method for Psi", "orientation", "../plots/improved\\_euler\\_method\\_Psi.txt", "#0000FF");
     return 0;
-}
-
-double fx(double t, double x, double y){
-    return (y);
-}
-double fy(double t, double x, double y){
-    return (Kpz * (z_des - x) - (Kdz * y) - (Cz * fabs(y) * y) )/M;
-}
-double fw(double t, double w, double u){
-    return (u);
-}
-double fu(double t, double w, double u){
-    return (Kp_psi * (psi_des-w) - (Kd_psi * u) - (0.5 * Cpsi * fabs(u) * u) )/Iz;
 }

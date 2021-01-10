@@ -71,19 +71,12 @@ int main(int argc, char * argv[]){
     
     /*--------------- Plotting ---------------*/
     createPlot("../plots/differential.txt", "Differential Equation", "displacement", "..plots/differential.txt", "#FF0000");
-    
     createPlot("../plots/euler_method_z_2d.txt", "Euler's method for z", "displacement", "..plots/euler\\_method\\_z\\_2d.txt", "#FF0000");
-
     createPlot("../plots/euler_method_y_2d.txt", "Euler's method for y", "velocity", "..plots/euler\\_method\\_y\\_2d.txt", "#0000FF");
-    
     createPlot("../plots/improved_euler_method_z_2d.txt", "Improved Euler's method z", "displacement", "..plots/improved\\_euler\\_method\\_z\\_2d.txt", "#FF0000");
-    
     createPlot("../plots/improved_euler_method_y_2d.txt", "Improved Euler's method for y", "velocity", "..plots/improved\\_euler\\_method\\_y\\_2d.txt", "#0000FF");
-    
     createPlot("../plots/errors_E.txt", "Truncation Error Euler's method", "error", "e_n(Euler)", "#00FF00");
-    
     createPlot("../plots/errors_BE.txt", "Truncation Error Improved Euler's method", "error", "e_n(Improved Euler)", "#FF00FF");
-    
     createMultiPlot("../plots/errors_E.txt", "e_n(E)", "../plots/errors_BE.txt", "e_n(BE)", "error");
     
     return 0;

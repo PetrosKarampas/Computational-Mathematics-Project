@@ -28,16 +28,10 @@ double Cz   = 3.0-((double)AM / 5000);
 double Cpsi = 5.0-((double)AM / 5000);
 
 //Macros
-//#define fx(t, x, y) (y)
-//#define fy(t, x, y) (((fz) - (g * M) - ((Cz) * fabs(y) * (y)))/M)
-//#define fw(t, w, u) (u)
-//#define fu(t, w, u) (((tz) - (0.5 * (Cpsi) *  (fabs(u)) * (u)))/Iz)
-
-//prototypes
-double fx(double t, double x, double y);
-double fy(double t, double x, double y);
-double fw(double t, double w, double u);
-double fu(double t, double w, double u);
+#define fx(t, x, y) (y)
+#define fy(t, x, y) (((fz) - (g * M) - ((Cz) * fabs(y) * (y)))/M)
+#define fw(t, w, u) (u)
+#define fu(t, w, u) (((tz) - (0.5 * (Cpsi) *  (fabs(u)) * (u)))/Iz)
 
 int main(int argc, const char* argv[]) {
     
@@ -133,20 +127,4 @@ int main(int argc, const char* argv[]) {
         createPlot("../plots/improved_euler_method_Psi_input2.txt", "Improved Euler's method for Psi (input 2)", "orientation", "../plots/improved\\_euler\\_method\\_Psi\\_input2.txt", "#0000FF");
     }
     return 0;
-}
-
-double fx(double t, double x, double y){
-    return (y);
-}
-
-double fy(double t, double x, double y){
-    return (fz - (g * M) - (Cz * fabs(y) * y))/M;
-}
-
-double fw(double t, double w, double u){
-    return (u);
-}
-
-double fu(double t, double w, double u){
-    return (tz - (0.5 * Cpsi *  fabs(u) * u))/Iz;
 }
