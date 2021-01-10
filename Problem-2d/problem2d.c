@@ -23,8 +23,8 @@ double Cz    = 4 - ((double)AM / 5000);
 double z_des = (double)AM / 200;
 
 //Macros
-//#define fx(t, x, y) (y)
-//#define fy(t, x, y) (((((Kpz) * ((z_des) - (x))) - ((Kdz) * (y)) - ((Cz) * (y)))/(M)))
+#define fx(t, x, y) (y)
+#define fy(t, x, y) (((((Kpz) * ((z_des) - (x))) - ((Kdz) * (y)) - ((Cz) * (y)))/(M)))
 
 //prototypes
 void createPlotData(double y[], double t[], char* outfile_path);
@@ -32,8 +32,6 @@ void createPlot(char* errors_filepath, char* plot_title, char* ylabel, char* leg
 void createMultiPlot(char* data1, char* legend_title_1, char* data2, char* legend_title_2, char* ylabel);
 void createTruncationErrorData(double original[], double euler[], double euler_improved[], double t[]);
 char* concatenate(size_t size, char *array[size], const char *joint);
-double fx(double t, double x, double y);
-double fy(double t, double x, double y);
 
 int main(int argc, char * argv[]){
     /*--------------- Analytical solution of the differential equation-------------*/
@@ -55,7 +53,6 @@ int main(int argc, char * argv[]){
     time = 0.0;
     
     for(int i = 0; i<30000; i++, time+=h){
-        
         x[i+1] = x[i] + h * fx(time, x[i], y[i]);
         y[i+1] = y[i] + h * fy(time, x[i], y[i]);
     }
@@ -145,19 +142,11 @@ void createMultiPlot(char* data1, char* legend_title_1, char* data2, char* legen
     free(cat);
 }
 
-double fx(double t, double x, double y){
-    return y;
-}
-
-double fy(double t, double x, double y){
-    return (Kpz * (z_des - x) - Kdz * y - (Cz * y))/M;
-}
-
+// takes an array of strings and concatenates them to a single one
 char* concatenate(size_t size, char* array[size], const char *joint){
     size_t jlen, lens[size];
     size_t i, total_size = (size-1) * (jlen=strlen(joint)) + 1;
     char *result, *p;
-
 
     for(i=0;i<size;++i){
         total_size += (lens[i]=strlen(array[i]));
