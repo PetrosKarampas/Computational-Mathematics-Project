@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include "../utils/utils.h"
 
 // Constants
 #define M       1
@@ -33,7 +34,6 @@ double Cpsi = 5.0-((double)AM / 5000);
 //#define fu(t, w, u) (((tz) - (0.5 * (Cpsi) *  (fabs(u)) * (u)))/Iz)
 
 //prototypes
-void createPlot(double y[], double t[], char* filename, char* commands[]);
 double fx(double t, double x, double y);
 double fy(double t, double x, double y);
 double fw(double t, double w, double u);
@@ -83,8 +83,6 @@ int main(int argc, const char* argv[]) {
         
         t[i+1] = time;
     }
-    /*----------------------------------------------*/
-    
     
     /*--------------- Improved Euler's Method --------------*/
     double x_imp [30001];
@@ -110,65 +108,31 @@ int main(int argc, const char* argv[]) {
         u_imp[i+1] = u_imp[i] + (h/2) * ( fu( time, w_imp[i], u_imp[i]) + fu( time+h, w_imp[i] + h * fw(time, w_imp[i], u_imp[i]), u_imp[i] + h * fu(time, w_imp[i], u_imp[i]) )  );
     
     }
-    /*----------------------------------------------*/
-
 
     /*--------------- Plotting --------------*/
     if( atoi(argv[1]) == 1){
-        // plotting for euler method and improved euler for z and psi
-        char * commandsForGnuplot[] = {"set title \"Euler's method for z (input 1)\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z_input1.txt' lt rgb \"red\" with lines"};
-        createPlot(x, t, "../plots/euler_method_z_input1.txt", commandsForGnuplot);
-
-        commandsForGnuplot[0] ="set title \"Improved Euler's method for z (input 1)\"";
-        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_z_input1.txt' lt rgb \"red\" with lines";
-        createPlot(x_imp, t, "../plots/improved_euler_method_z_input1.txt", commandsForGnuplot);
-
-        commandsForGnuplot[0] ="set title \"Euler's method for Psi (input 1)\"";
-        commandsForGnuplot[3] ="plot '../plots/euler_method_Psi_input1.txt' lt rgb \"blue\" with lines";
-        commandsForGnuplot[2] ="set ylabel \"orientation\"";
-        createPlot(w, t, "../plots/euler_method_Psi_input1.txt", commandsForGnuplot);
+        createPlotData(x, t, "../plots/euler_method_z_input1.txt");
+        createPlotData(w, t, "../plots/euler_method_Psi_input1.txt");
+        createPlotData(x_imp, t, "../plots/improved_euler_method_z_input1.txt");
+        createPlotData(w_imp, t, "../plots/improved_euler_method_Psi_input1.txt");
         
-        commandsForGnuplot[0] ="set title \"Improved Euler's method for Psi (input 1)\"";
-        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_Psi_input1.txt' lt rgb \"blue\" with lines";
-        commandsForGnuplot[2] ="set ylabel \"orientation\"";
-        createPlot(w_imp, t, "../plots/improved_euler_method_Psi_input1.txt", commandsForGnuplot);
-        
+        createPlot("../plots/euler_method_z_input1.txt", "Euler's method for z (input 1)", "displacement", "../plots/euler\\_method\\_z\\_input1.txt", "#FF0000");
+        createPlot("../plots/euler_method_Psi_input1.txt", "Euler's method for Psi (input 1)", "orientation", "../plots/euler\\_method\\_Psi\\_input1.txt", "#0000FF");
+        createPlot("../plots/improved_euler_method_z_input1.txt", "Improved Euler's method for z (input 1)", "displacement", "../plots/improved\\_euler\\_method\\_z\\_input1.txt", "#FF0000");
+        createPlot("../plots/improved_euler_method_Psi_input1.txt", "Improved Euler's method for Psi (input 1)", "orientation", "../plots/improved\\_euler\\_method\\_\\Psi\\_input1.txt", "#0000FF");
         
     }else if(atoi(argv[1]) == 2) {
-        char * commandsForGnuplot[] = {"set title \"Euler's method for z (input 2)\"", "set xlabel \"time\"", "set ylabel \"displacement\"", "plot '../plots/euler_method_z_input2.txt' lt rgb \"red\" with lines"};
-        createPlot(x, t, "../plots/euler_method_z_input2.txt", commandsForGnuplot);
-
-        commandsForGnuplot[0] ="set title \"Improved Euler's method for z (input 2)\"";
-        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_z_input2.txt' lt rgb \"red\" with lines";
-        createPlot(x_imp, t, "../plots/improved_euler_method_z_input2.txt", commandsForGnuplot);
-
-        commandsForGnuplot[0] ="set title \"Euler's method for Psi (input 2)\"";
-        commandsForGnuplot[3] ="plot '../plots/euler_method_Psi_input2.txt' lt rgb \"blue\" with lines";
-        commandsForGnuplot[2] ="set ylabel \"orientation\"";
-        createPlot(w, t, "../plots/euler_method_Psi_input2.txt", commandsForGnuplot);
+        createPlotData(x, t, "../plots/euler_method_z_input2.txt");
+        createPlotData(w, t, "../plots/euler_method_Psi_input2.txt");
+        createPlotData(x_imp, t, "../plots/improved_euler_method_z_input2.txt");
+        createPlotData(w_imp, t, "../plots/improved_euler_method_Psi_input2.txt");
         
-        commandsForGnuplot[0] ="set title \"Improved Euler's method for Psi (input 2)\"";
-        commandsForGnuplot[3] ="plot '../plots/improved_euler_method_Psi_input2.txt' lt rgb \"blue\" with lines";
-        commandsForGnuplot[2] ="set ylabel \"orientation\"";
-        createPlot(w_imp, t, "../plots/improved_euler_method_Psi_input2.txt", commandsForGnuplot);
+        createPlot("../plots/euler_method_z_input2.txt", "Euler's method for z (input 2)", "displacement", "../plots/euler\\_method\\_z\\_input2.txt", "#FF0000");
+        createPlot("../plots/euler_method_Psi_input2.txt", "Euler's method for Psi (input 2)", "orientation", "../plots/improved\\_euler\\_method\\_z\\_input2.txt", "#0000FF");
+        createPlot("../plots/improved_euler_method_z_input2.txt", "Improved Euler's method for z (input 2)", "displacement", "../plots/improved\\_euler\\_method\\_z\\_input2.txt", "#FF0000");
+        createPlot("../plots/improved_euler_method_Psi_input2.txt", "Improved Euler's method for Psi (input 2)", "orientation", "../plots/improved\\_euler\\_method\\_Psi\\_input2.txt", "#0000FF");
     }
     return 0;
-    /*----------------------------------------------*/
-}
-
-// create data and open a pipe to the gnuplot programm and feed it commands to create the plots
-void createPlot(double y[], double t[], char* filename, char* commands[]) {
-    FILE * gnuplotPipe = popen ("gnuplot -persistent", "w");
-    FILE *fp=NULL;
-    fp=fopen(filename,"w");
-
-    for(int i = 0; i<=30000; i++) {
-        fprintf(fp,"%lf\t %.10lf\n", t[i], y[i]);
-    }
-    
-    for (int i=0; i < 4; i++){
-        fprintf(gnuplotPipe, "%s \n", commands[i]); //Send commands to gnuplot one by one.
-    }
 }
 
 double fx(double t, double x, double y){

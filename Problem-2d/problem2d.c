@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include "../utils/utils.h"
 
 // Constants
 #define M       1.5
@@ -25,13 +26,6 @@ double z_des = (double)AM / 200;
 //Macros
 #define fx(t, x, y) (y)
 #define fy(t, x, y) (((((Kpz) * ((z_des) - (x))) - ((Kdz) * (y)) - ((Cz) * (y)))/(M)))
-
-//prototypes
-void createPlotData(double y[], double t[], char* outfile_path);
-void createPlot(char* errors_filepath, char* plot_title, char* ylabel, char* legend_label, char* rgb);
-void createMultiPlot(char* data1, char* legend_title_1, char* data2, char* legend_title_2, char* ylabel);
-void createTruncationErrorData(double original[], double euler[], double euler_improved[], double t[]);
-char* concatenate(size_t size, char *array[size], const char *joint);
 
 int main(int argc, char * argv[]){
     /*--------------- Analytical solution of the differential equation-------------*/
@@ -93,73 +87,4 @@ int main(int argc, char * argv[]){
     createMultiPlot("../plots/errors_E.txt", "e_n(E)", "../plots/errors_BE.txt", "e_n(BE)", "error");
     
     return 0;
-}
-
-
-void createPlotData(double y[], double t[], char* outfile_path) {
-    FILE* fp = fopen(outfile_path, "w");
-    for(int i = 0; i<=30000; i++) {
-        fprintf(fp, "%.3lf\t %.10lf\n", t[i], y[i]);
-    }
-}
-
-void createTruncationErrorData(double original[], double euler[], double euler_improved[], double t[]) {
-    FILE* euler_error_fp = fopen("../plots/errors_E.txt", "w");
-    FILE* improved_euler_error_fp = fopen("../plots/errors_BE.txt", "w");
-    
-    // calculate truncation error data
-    double errors_euler[30001];
-    double errors_improved_euler[30001];
-    for (int i = 0; i<=30000; i++) {
-        errors_euler[i]          = fabs(original[i] - euler[i]);
-        errors_improved_euler[i] = fabs(original[i] - euler_improved[i]);
-    }
-    
-    for(int i = 0; i<=30000; i++) {
-        fprintf(euler_error_fp,"%.3lf\t %.10lf\n", t[i], errors_euler[i]);
-        fprintf(improved_euler_error_fp,"%.3lf\t %.10lf\n", t[i], errors_improved_euler[i]);
-    }
-}
-
-// open a pipe to the gnuplot programm and feed it commands to create the plot
-void createPlot(char* errors_filepath, char* plot_title, char* ylabel, char* legend_label, char* rgb) {
-    FILE* gnuplotPipe = popen ("gnuplot -persistent", "w");
-    char * commandsForGnuplot[] = {"set title \"", plot_title, "\";", "set xlabel \"time\";", "set ylabel \"", ylabel, "\";",\
-        "plot '", errors_filepath, "' using 1:2 title '", legend_label,"'lt rgb \"" , rgb,"\" with lines;"};
-    
-    char *cat = concatenate(14, commandsForGnuplot, "");
-    fprintf(gnuplotPipe, "%s \n", cat); //Send command to gnuplot.
-    free(cat);
-}
-
-// open a pipe to the gnuplot programm and feed it commands to create the plot
-void createMultiPlot(char* data1, char* legend_title_1, char* data2, char* legend_title_2, char* ylabel) {
-    FILE* gnuplotPipe = popen ("gnuplot -persistent", "w");
-    
-    char * commandsForGnuplot[] = {"set title \"Truncation Error\"; set xlabel \"time\"; set ylabel \"", ylabel, "\"; plot '", data1, "' using 1:2 title '", legend_title_1, "' lw 3 lt rgb \"#00FF00\" with lines, '", data2,"' using 1:2 title '", legend_title_2,"'lw 4 lt rgb \"#FF00FF\" with lines"};
-    char *cat = concatenate(11, commandsForGnuplot, "");
-    fprintf(gnuplotPipe, "%s \n", cat); //Send commands to gnuplot one by one.
-    free(cat);
-}
-
-// takes an array of strings and concatenates them to a single one
-char* concatenate(size_t size, char* array[size], const char *joint){
-    size_t jlen, lens[size];
-    size_t i, total_size = (size-1) * (jlen=strlen(joint)) + 1;
-    char *result, *p;
-
-    for(i=0;i<size;++i){
-        total_size += (lens[i]=strlen(array[i]));
-    }
-    p = result = malloc(total_size);
-    for(i=0;i<size;++i){
-        memcpy(p, array[i], lens[i]);
-        p += lens[i];
-        if(i<size-1){
-            memcpy(p, joint, jlen);
-            p += jlen;
-        }
-    }
-    *p = '\0';
-    return result;
 }
