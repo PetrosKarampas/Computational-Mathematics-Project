@@ -11,6 +11,8 @@ Folders `Problem-1b`, `Problem-1d`, `Problem-2d` include the scripts for the sol
 
 The `plots` folder includes  `.txt` files with the output values of the solutions. The scripts use these files to generate plots.
 
+The `utils` folder includes an API used by the scripts that creates plots using the gnuplot command line tool.
+
 The `bin` folder includes the unix executables after the compilation.
 
 <br>
