@@ -1,7 +1,8 @@
 //
-//  	problem2d.c
+//  problem2d.c
+//  Computational Mathematics Project
 //
-//	Created by Alexandros Alexiou, Petros Karampas, Nikos Amvazas.
+//  Created by Alexandros Alexiou 2929, Petros Karampas 2987, Nikos Amvazas 2932.
 //
 #include <stdio.h>
 #include <stdlib.h>

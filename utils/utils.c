@@ -2,7 +2,7 @@
 //  utils.c
 //  Computational Mathematics Project
 //
-//  Created by Alexandros Alexiou on 10/1/21.
+//  Created by Alexandros Alexiou 2929, Petros Karampas 2987, Nikos Amvazas 2932.
 //
 
 #include "utils.h"
