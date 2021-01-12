@@ -11,7 +11,7 @@ problem1d:  Problem-1d/problem1d.c utils/utils.c
 	$(CC) $(CFLAGS) -o bin/problem1d Problem-1d/problem1d.c utils/utils.c
 	
 problem2d:  Problem-2d/problem2d.c utils/utils.c
-	$(CC) $(CFLAGS) -o bin/problem2d Problem-2d/problem2d.c utils/utils.c -I -lm
+	$(CC) $(CFLAGS) -o bin/problem2d Problem-2d/problem2d.c utils/utils.c -lm
 
 clean:
 	rm -f bin/problem1b bin/problem1d bin/problem2d utils/utils.o
